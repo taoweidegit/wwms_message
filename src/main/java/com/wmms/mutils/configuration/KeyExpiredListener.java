@@ -29,7 +29,7 @@ public class KeyExpiredListener extends KeyExpirationEventMessageListener
             String uid = message.toString().split("_")[1];
             String device = message.toString().split("_")[2];
 
-            String sql = "UPDATE t_login SET State='logout', AccessTime='', RefreshTime='' WHERE `User`="
+            String sql = "UPDATE t_login SET State='logout', AccessToken='', RefreshToken='' WHERE `User`="
                     + uid + " AND Device = '" + device + "'";
             statement.execute(sql);
 
