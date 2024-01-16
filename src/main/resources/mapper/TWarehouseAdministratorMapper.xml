@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wmms.mutils.mapper.TWarehouseAdministratorMapper">
+  <resultMap id="BaseResultMap" type="com.wmms.mutils.entity.TWarehouseAdministrator">
+    <!--@mbg.generated-->
+    <!--@Table t_warehouse_administrator-->
+    <id column="ID" jdbcType="BIGINT" property="ID" />
+    <result column="Administrator" jdbcType="BIGINT" property="administrator" />
+    <result column="Role" jdbcType="OTHER" property="role" />
+    <result column="Warehouse" jdbcType="BIGINT" property="warehouse" />
+    <result column="IS_Master" jdbcType="OTHER" property="IS_Master" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    ID, Administrator, `Role`, Warehouse, IS_Master
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_warehouse_administrator
+    where ID = #{ID,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from t_warehouse_administrator
+    where ID = #{ID,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="ID" keyProperty="ID" parameterType="com.wmms.mutils.entity.TWarehouseAdministrator" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_warehouse_administrator (Administrator, `Role`, Warehouse, 
+      IS_Master)
+    values (#{administrator,jdbcType=BIGINT}, #{role,jdbcType=OTHER}, #{warehouse,jdbcType=BIGINT}, 
+      #{IS_Master,jdbcType=OTHER})
+  </insert>
+  <insert id="insertSelective" keyColumn="ID" keyProperty="ID" parameterType="com.wmms.mutils.entity.TWarehouseAdministrator" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_warehouse_administrator
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="administrator != null">
+        Administrator,
+      </if>
+      <if test="role != null">
+        `Role`,
+      </if>
+      <if test="warehouse != null">
+        Warehouse,
+      </if>
+      <if test="IS_Master != null">
+        IS_Master,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="administrator != null">
+        #{administrator,jdbcType=BIGINT},
+      </if>
+      <if test="role != null">
+        #{role,jdbcType=OTHER},
+      </if>
+      <if test="warehouse != null">
+        #{warehouse,jdbcType=BIGINT},
+      </if>
+      <if test="IS_Master != null">
+        #{IS_Master,jdbcType=OTHER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wmms.mutils.entity.TWarehouseAdministrator">
+    <!--@mbg.generated-->
+    update t_warehouse_administrator
+    <set>
+      <if test="administrator != null">
+        Administrator = #{administrator,jdbcType=BIGINT},
+      </if>
+      <if test="role != null">
+        `Role` = #{role,jdbcType=OTHER},
+      </if>
+      <if test="warehouse != null">
+        Warehouse = #{warehouse,jdbcType=BIGINT},
+      </if>
+      <if test="IS_Master != null">
+        IS_Master = #{IS_Master,jdbcType=OTHER},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wmms.mutils.entity.TWarehouseAdministrator">
+    <!--@mbg.generated-->
+    update t_warehouse_administrator
+    set Administrator = #{administrator,jdbcType=BIGINT},
+      `Role` = #{role,jdbcType=OTHER},
+      Warehouse = #{warehouse,jdbcType=BIGINT},
+      IS_Master = #{IS_Master,jdbcType=OTHER}
+    where ID = #{ID,jdbcType=BIGINT}
+  </update>
+</mapper>

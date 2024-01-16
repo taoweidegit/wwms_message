@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wmms.mutils.mapper.TUserMapper">
+  <resultMap id="BaseResultMap" type="com.wmms.mutils.entity.TUser">
+    <!--@mbg.generated-->
+    <!--@Table t_user-->
+    <id column="ID" jdbcType="BIGINT" property="ID" />
+    <result column="Name" jdbcType="VARCHAR" property="name" />
+    <result column="Eid" jdbcType="VARCHAR" property="eid" />
+    <result column="Wx_id" jdbcType="VARCHAR" property="wx_id" />
+    <result column="Department" jdbcType="BIGINT" property="department" />
+    <result column="Role" jdbcType="BIGINT" property="role" />
+    <result column="Mobile" jdbcType="VARCHAR" property="mobile" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    ID, `Name`, Eid, Wx_id, Department, `Role`, Mobile
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_user
+    where ID = #{ID,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from t_user
+    where ID = #{ID,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="ID" keyProperty="ID" parameterType="com.wmms.mutils.entity.TUser" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_user (`Name`, Eid, Wx_id, 
+      Department, `Role`, Mobile
+      )
+    values (#{name,jdbcType=VARCHAR}, #{eid,jdbcType=VARCHAR}, #{wx_id,jdbcType=VARCHAR}, 
+      #{department,jdbcType=BIGINT}, #{role,jdbcType=BIGINT}, #{mobile,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="ID" keyProperty="ID" parameterType="com.wmms.mutils.entity.TUser" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        `Name`,
+      </if>
+      <if test="eid != null">
+        Eid,
+      </if>
+      <if test="wx_id != null">
+        Wx_id,
+      </if>
+      <if test="department != null">
+        Department,
+      </if>
+      <if test="role != null">
+        `Role`,
+      </if>
+      <if test="mobile != null">
+        Mobile,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="eid != null">
+        #{eid,jdbcType=VARCHAR},
+      </if>
+      <if test="wx_id != null">
+        #{wx_id,jdbcType=VARCHAR},
+      </if>
+      <if test="department != null">
+        #{department,jdbcType=BIGINT},
+      </if>
+      <if test="role != null">
+        #{role,jdbcType=BIGINT},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wmms.mutils.entity.TUser">
+    <!--@mbg.generated-->
+    update t_user
+    <set>
+      <if test="name != null">
+        `Name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="eid != null">
+        Eid = #{eid,jdbcType=VARCHAR},
+      </if>
+      <if test="wx_id != null">
+        Wx_id = #{wx_id,jdbcType=VARCHAR},
+      </if>
+      <if test="department != null">
+        Department = #{department,jdbcType=BIGINT},
+      </if>
+      <if test="role != null">
+        `Role` = #{role,jdbcType=BIGINT},
+      </if>
+      <if test="mobile != null">
+        Mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wmms.mutils.entity.TUser">
+    <!--@mbg.generated-->
+    update t_user
+    set `Name` = #{name,jdbcType=VARCHAR},
+      Eid = #{eid,jdbcType=VARCHAR},
+      Wx_id = #{wx_id,jdbcType=VARCHAR},
+      Department = #{department,jdbcType=BIGINT},
+      `Role` = #{role,jdbcType=BIGINT},
+      Mobile = #{mobile,jdbcType=VARCHAR}
+    where ID = #{ID,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wmms.mutils.mapper.TLoginMapper">
+  <resultMap id="BaseResultMap" type="com.wmms.mutils.entity.TLogin">
+    <!--@mbg.generated-->
+    <!--@Table t_login-->
+    <id column="ID" jdbcType="BIGINT" property="ID" />
+    <result column="User" jdbcType="BIGINT" property="user" />
+    <result column="AccessToken" jdbcType="LONGVARCHAR" property="accessToken" />
+    <result column="RefreshToken" jdbcType="LONGVARCHAR" property="refreshToken" />
+    <result column="State" jdbcType="OTHER" property="state" />
+    <result column="AccessTime" jdbcType="TIMESTAMP" property="accessTime" />
+    <result column="RefreshTime" jdbcType="TIMESTAMP" property="refreshTime" />
+    <result column="Device" jdbcType="OTHER" property="device" />
+    <result column="QueueListener" jdbcType="VARCHAR" property="queueListener" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    ID, `User`, AccessToken, RefreshToken, `State`, AccessTime, RefreshTime, Device, 
+    QueueListener
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_login
+    where ID = #{ID,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from t_login
+    where ID = #{ID,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="ID" keyProperty="ID" parameterType="com.wmms.mutils.entity.TLogin" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_login (`User`, AccessToken, RefreshToken, 
+      `State`, AccessTime, RefreshTime, 
+      Device, QueueListener)
+    values (#{user,jdbcType=BIGINT}, #{accessToken,jdbcType=LONGVARCHAR}, #{refreshToken,jdbcType=LONGVARCHAR}, 
+      #{state,jdbcType=OTHER}, #{accessTime,jdbcType=TIMESTAMP}, #{refreshTime,jdbcType=TIMESTAMP}, 
+      #{device,jdbcType=OTHER}, #{queueListener,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="ID" keyProperty="ID" parameterType="com.wmms.mutils.entity.TLogin" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_login
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="user != null">
+        `User`,
+      </if>
+      <if test="accessToken != null">
+        AccessToken,
+      </if>
+      <if test="refreshToken != null">
+        RefreshToken,
+      </if>
+      <if test="state != null">
+        `State`,
+      </if>
+      <if test="accessTime != null">
+        AccessTime,
+      </if>
+      <if test="refreshTime != null">
+        RefreshTime,
+      </if>
+      <if test="device != null">
+        Device,
+      </if>
+      <if test="queueListener != null">
+        QueueListener,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="user != null">
+        #{user,jdbcType=BIGINT},
+      </if>
+      <if test="accessToken != null">
+        #{accessToken,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="refreshToken != null">
+        #{refreshToken,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=OTHER},
+      </if>
+      <if test="accessTime != null">
+        #{accessTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="refreshTime != null">
+        #{refreshTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="device != null">
+        #{device,jdbcType=OTHER},
+      </if>
+      <if test="queueListener != null">
+        #{queueListener,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wmms.mutils.entity.TLogin">
+    <!--@mbg.generated-->
+    update t_login
+    <set>
+      <if test="user != null">
+        `User` = #{user,jdbcType=BIGINT},
+      </if>
+      <if test="accessToken != null">
+        AccessToken = #{accessToken,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="refreshToken != null">
+        RefreshToken = #{refreshToken,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="state != null">
+        `State` = #{state,jdbcType=OTHER},
+      </if>
+      <if test="accessTime != null">
+        AccessTime = #{accessTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="refreshTime != null">
+        RefreshTime = #{refreshTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="device != null">
+        Device = #{device,jdbcType=OTHER},
+      </if>
+      <if test="queueListener != null">
+        QueueListener = #{queueListener,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wmms.mutils.entity.TLogin">
+    <!--@mbg.generated-->
+    update t_login
+    set `User` = #{user,jdbcType=BIGINT},
+      AccessToken = #{accessToken,jdbcType=LONGVARCHAR},
+      RefreshToken = #{refreshToken,jdbcType=LONGVARCHAR},
+      `State` = #{state,jdbcType=OTHER},
+      AccessTime = #{accessTime,jdbcType=TIMESTAMP},
+      RefreshTime = #{refreshTime,jdbcType=TIMESTAMP},
+      Device = #{device,jdbcType=OTHER},
+      QueueListener = #{queueListener,jdbcType=VARCHAR}
+    where ID = #{ID,jdbcType=BIGINT}
+  </update>
+
+  <update id="updateByUidAndDevice" parameterType="com.wmms.mutils.entity.TLogin">
+    update t_login
+    set AccessToken = '',
+        RefreshToken = '',
+        `State` = 'logout'
+    <where>
+      `User` = #{user,jdbcType=BIGINT} and Device = #{device,jdbcType=OTHER}
+    </where>
+  </update>
+
+</mapper>

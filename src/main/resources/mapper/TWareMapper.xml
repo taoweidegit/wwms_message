@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wmms.mutils.mapper.TWareMapper">
+  <resultMap id="BaseResultMap" type="com.wmms.mutils.entity.TWare">
+    <!--@mbg.generated-->
+    <!--@Table t_ware-->
+    <id column="ID" jdbcType="BIGINT" property="ID" />
+    <result column="Name" jdbcType="VARCHAR" property="name" />
+    <result column="Model" jdbcType="VARCHAR" property="model" />
+    <result column="Kind" jdbcType="BIGINT" property="kind" />
+    <result column="Unit" jdbcType="BIGINT" property="unit" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    ID, `Name`, Model, Kind, Unit
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_ware
+    where ID = #{ID,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from t_ware
+    where ID = #{ID,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="ID" keyProperty="ID" parameterType="com.wmms.mutils.entity.TWare" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_ware (`Name`, Model, Kind, 
+      Unit)
+    values (#{name,jdbcType=VARCHAR}, #{model,jdbcType=VARCHAR}, #{kind,jdbcType=BIGINT}, 
+      #{unit,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" keyColumn="ID" keyProperty="ID" parameterType="com.wmms.mutils.entity.TWare" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_ware
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        `Name`,
+      </if>
+      <if test="model != null">
+        Model,
+      </if>
+      <if test="kind != null">
+        Kind,
+      </if>
+      <if test="unit != null">
+        Unit,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null">
+        #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="kind != null">
+        #{kind,jdbcType=BIGINT},
+      </if>
+      <if test="unit != null">
+        #{unit,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wmms.mutils.entity.TWare">
+    <!--@mbg.generated-->
+    update t_ware
+    <set>
+      <if test="name != null">
+        `Name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null">
+        Model = #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="kind != null">
+        Kind = #{kind,jdbcType=BIGINT},
+      </if>
+      <if test="unit != null">
+        Unit = #{unit,jdbcType=BIGINT},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wmms.mutils.entity.TWare">
+    <!--@mbg.generated-->
+    update t_ware
+    set `Name` = #{name,jdbcType=VARCHAR},
+      Model = #{model,jdbcType=VARCHAR},
+      Kind = #{kind,jdbcType=BIGINT},
+      Unit = #{unit,jdbcType=BIGINT}
+    where ID = #{ID,jdbcType=BIGINT}
+  </update>
+</mapper>

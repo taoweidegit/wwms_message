@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wmms.mutils.mapper.TApplyMapper">
+  <resultMap id="BaseResultMap" type="com.wmms.mutils.entity.TApply">
+    <!--@mbg.generated-->
+    <!--@Table t_apply-->
+    <id column="ID" jdbcType="BIGINT" property="ID" />
+    <result column="Inventory" jdbcType="BIGINT" property="inventory" />
+    <result column="Applicant" jdbcType="BIGINT" property="applicant" />
+    <result column="Quantity" jdbcType="INTEGER" property="quantity" />
+    <result column="ApplicationTime" jdbcType="TIMESTAMP" property="applicationTime" />
+    <result column="Type" jdbcType="OTHER" property="type" />
+    <result column="State" jdbcType="OTHER" property="state" />
+    <result column="WarehousingTime" jdbcType="TIMESTAMP" property="warehousingTime" />
+    <result column="ApprovalTime" jdbcType="TIMESTAMP" property="approvalTime" />
+    <result column="CancelTime" jdbcType="TIMESTAMP" property="cancelTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    ID, Inventory, Applicant, Quantity, ApplicationTime, `Type`, `State`, WarehousingTime, 
+    ApprovalTime, CancelTime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_apply
+    where ID = #{ID,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from t_apply
+    where ID = #{ID,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="ID" keyProperty="ID" parameterType="com.wmms.mutils.entity.TApply" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_apply (Inventory, Applicant, Quantity, 
+      ApplicationTime, `Type`, `State`, 
+      WarehousingTime, ApprovalTime, CancelTime
+      )
+    values (#{inventory,jdbcType=BIGINT}, #{applicant,jdbcType=BIGINT}, #{quantity,jdbcType=INTEGER}, 
+      #{applicationTime,jdbcType=TIMESTAMP}, #{type,jdbcType=OTHER}, #{state,jdbcType=OTHER}, 
+      #{warehousingTime,jdbcType=TIMESTAMP}, #{approvalTime,jdbcType=TIMESTAMP}, #{cancelTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="ID" keyProperty="ID" parameterType="com.wmms.mutils.entity.TApply" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_apply
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="inventory != null">
+        Inventory,
+      </if>
+      <if test="applicant != null">
+        Applicant,
+      </if>
+      <if test="quantity != null">
+        Quantity,
+      </if>
+      <if test="applicationTime != null">
+        ApplicationTime,
+      </if>
+      <if test="type != null">
+        `Type`,
+      </if>
+      <if test="state != null">
+        `State`,
+      </if>
+      <if test="warehousingTime != null">
+        WarehousingTime,
+      </if>
+      <if test="approvalTime != null">
+        ApprovalTime,
+      </if>
+      <if test="cancelTime != null">
+        CancelTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="inventory != null">
+        #{inventory,jdbcType=BIGINT},
+      </if>
+      <if test="applicant != null">
+        #{applicant,jdbcType=BIGINT},
+      </if>
+      <if test="quantity != null">
+        #{quantity,jdbcType=INTEGER},
+      </if>
+      <if test="applicationTime != null">
+        #{applicationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=OTHER},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=OTHER},
+      </if>
+      <if test="warehousingTime != null">
+        #{warehousingTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="approvalTime != null">
+        #{approvalTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cancelTime != null">
+        #{cancelTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wmms.mutils.entity.TApply">
+    <!--@mbg.generated-->
+    update t_apply
+    <set>
+      <if test="inventory != null">
+        Inventory = #{inventory,jdbcType=BIGINT},
+      </if>
+      <if test="applicant != null">
+        Applicant = #{applicant,jdbcType=BIGINT},
+      </if>
+      <if test="quantity != null">
+        Quantity = #{quantity,jdbcType=INTEGER},
+      </if>
+      <if test="applicationTime != null">
+        ApplicationTime = #{applicationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="type != null">
+        `Type` = #{type,jdbcType=OTHER},
+      </if>
+      <if test="state != null">
+        `State` = #{state,jdbcType=OTHER},
+      </if>
+      <if test="warehousingTime != null">
+        WarehousingTime = #{warehousingTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="approvalTime != null">
+        ApprovalTime = #{approvalTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cancelTime != null">
+        CancelTime = #{cancelTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wmms.mutils.entity.TApply">
+    <!--@mbg.generated-->
+    update t_apply
+    set Inventory = #{inventory,jdbcType=BIGINT},
+      Applicant = #{applicant,jdbcType=BIGINT},
+      Quantity = #{quantity,jdbcType=INTEGER},
+      ApplicationTime = #{applicationTime,jdbcType=TIMESTAMP},
+      `Type` = #{type,jdbcType=OTHER},
+      `State` = #{state,jdbcType=OTHER},
+      WarehousingTime = #{warehousingTime,jdbcType=TIMESTAMP},
+      ApprovalTime = #{approvalTime,jdbcType=TIMESTAMP},
+      CancelTime = #{cancelTime,jdbcType=TIMESTAMP}
+    where ID = #{ID,jdbcType=BIGINT}
+  </update>
+</mapper>
