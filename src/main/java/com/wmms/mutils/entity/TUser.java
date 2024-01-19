@@ -4,33 +4,33 @@ public class TUser {
     private Long ID;
 
     /**
-    * 姓名
-    */
+     * 姓名
+     */
     private String name;
 
     /**
-    * 工号
-    */
+     * 工号
+     */
     private String eid;
 
     /**
-    * 微信open_id
-    */
+     * 微信open_id
+     */
     private String wx_id;
 
     /**
-    * 班组
-    */
+     * 班组
+     */
     private Long department;
 
     /**
-    * 职务
-    */
+     * 职务
+     */
     private Long role;
 
     /**
-    * 手机号码
-    */
+     * 手机号码
+     */
     private String mobile;
 
     public Long getID() {

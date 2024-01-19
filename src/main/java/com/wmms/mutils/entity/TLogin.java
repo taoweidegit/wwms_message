@@ -6,40 +6,40 @@ public class TLogin {
     private Long ID;
 
     /**
-    * 用户id
-    */
+     * 用户id
+     */
     private Long user;
 
     /**
-    * access_token
-    */
+     * access_token
+     */
     private String accessToken;
 
     /**
-    * refresh_token
-    */
+     * refresh_token
+     */
     private String refreshToken;
 
     /**
-    * 状态
-    */
+     * 状态
+     */
     private Object state;
 
     /**
-    * 登录时间
-    */
+     * 登录时间
+     */
     private Date accessTime;
 
     /**
-    * 刷新时间
-    */
+     * 刷新时间
+     */
     private Date refreshTime;
 
     private Object device;
 
     /**
-    * 队列unquie_key
-    */
+     * 队列unquie_key
+     */
     private String queueListener;
 
     public Long getID() {

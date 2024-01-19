@@ -4,13 +4,13 @@ public class TRole {
     private Long ID;
 
     /**
-    * 职务名称
-    */
+     * 职务名称
+     */
     private String name;
 
     /**
-    * 级别
-    */
+     * 级别
+     */
     private Integer rank;
 
     public Long getID() {

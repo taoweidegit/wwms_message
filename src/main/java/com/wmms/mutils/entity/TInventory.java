@@ -4,18 +4,18 @@ public class TInventory {
     private Long ID;
 
     /**
-    * 物品
-    */
+     * 物品
+     */
     private Long ware;
 
     /**
-    * 库存
-    */
+     * 库存
+     */
     private Integer quantity;
 
     /**
-    * 货架位置
-    */
+     * 货架位置
+     */
     private Long shelve;
 
     public Long getID() {

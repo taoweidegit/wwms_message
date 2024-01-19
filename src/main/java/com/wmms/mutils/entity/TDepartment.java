@@ -4,8 +4,8 @@ public class TDepartment {
     private Long ID;
 
     /**
-    * 班组名称
-    */
+     * 班组名称
+     */
     private String name;
 
     public Long getID() {

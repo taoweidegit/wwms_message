@@ -4,13 +4,13 @@ public class TWareKind {
     private Long ID;
 
     /**
-    * 种类名称
-    */
+     * 种类名称
+     */
     private String name;
 
     /**
-    * 父类
-    */
+     * 父类
+     */
     private Integer pid;
 
     public Long getID() {

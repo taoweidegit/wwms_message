@@ -4,23 +4,23 @@ public class TWarehouseAdministrator {
     private Long ID;
 
     /**
-    * 管理员用户主键
-    */
+     * 管理员用户主键
+     */
     private Long administrator;
 
     /**
-    * 负责入库或出库
-    */
+     * 负责入库或出库
+     */
     private Object role;
 
     /**
-    * 仓库主键
-    */
+     * 仓库主键
+     */
     private Long warehouse;
 
     /**
-    * 是否为主要负责人
-    */
+     * 是否为主要负责人
+     */
     private Object IS_Master;
 
     public Long getID() {

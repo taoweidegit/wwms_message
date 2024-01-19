@@ -6,48 +6,48 @@ public class TApply {
     private Long ID;
 
     /**
-    * 库存外键
-    */
+     * 库存外键
+     */
     private Long inventory;
 
     /**
-    * 申请人
-    */
+     * 申请人
+     */
     private Long applicant;
 
     /**
-    * 申请货物数量
-    */
+     * 申请货物数量
+     */
     private Integer quantity;
 
     /**
-    * 申请时间
-    */
+     * 申请时间
+     */
     private Date applicationTime;
 
     /**
-    * 进/出货
-    */
+     * 进/出货
+     */
     private Object type;
 
     /**
-    * 申请状态
-    */
+     * 申请状态
+     */
     private Object state;
 
     /**
-    * 入库时间
-    */
+     * 入库时间
+     */
     private Date warehousingTime;
 
     /**
-    * 批准/拒绝时间
-    */
+     * 批准/拒绝时间
+     */
     private Date approvalTime;
 
     /**
-    * 取消时间
-    */
+     * 取消时间
+     */
     private Date cancelTime;
 
     public Long getID() {

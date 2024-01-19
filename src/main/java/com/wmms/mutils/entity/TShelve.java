@@ -4,13 +4,13 @@ public class TShelve {
     private Long ID;
 
     /**
-    * 仓库
-    */
+     * 仓库
+     */
     private Long wareHouse;
 
     /**
-    * 二维码
-    */
+     * 二维码
+     */
     private Long code;
 
     public Long getID() {

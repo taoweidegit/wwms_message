@@ -7,8 +7,6 @@ import org.springframework.data.redis.connection.Message;
 import org.springframework.data.redis.listener.KeyExpirationEventMessageListener;
 import org.springframework.data.redis.listener.RedisMessageListenerContainer;
 
-import java.sql.*;
-
 public class KeyExpiredListener extends KeyExpirationEventMessageListener
 {
     @Autowired

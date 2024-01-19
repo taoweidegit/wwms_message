@@ -4,23 +4,23 @@ public class TWare {
     private Long ID;
 
     /**
-    * 名称
-    */
+     * 名称
+     */
     private String name;
 
     /**
-    * 型号
-    */
+     * 型号
+     */
     private String model;
 
     /**
-    * 种类
-    */
+     * 种类
+     */
     private Long kind;
 
     /**
-    * 物品单位
-    */
+     * 物品单位
+     */
     private Long unit;
 
     public Long getID() {
