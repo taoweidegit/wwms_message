@@ -4,8 +4,8 @@ public class TCompany {
     private Long ID;
 
     /**
-    * 公司名称
-    */
+     * 公司名称
+     */
     private String name;
 
     public Long getID() {

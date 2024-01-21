@@ -10,6 +10,7 @@
     <result column="Kind" jdbcType="BIGINT" property="kind" />
     <result column="Unit" jdbcType="BIGINT" property="unit" />
     <result column="Company" jdbcType="BIGINT" property="company" />
+    <result column="ItemNumber" jdbcType="VARCHAR" property="itemNumber" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--@mbg.generated-->
@@ -73,7 +74,7 @@
   </sql>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    ID, `Name`, Model, Kind, Unit, Company
+    ID, `Name`, Model, Kind, Unit, Company, ItemNumber
   </sql>
   <select id="selectByExample" parameterType="com.wmms.mutils.entity.TWareExample" resultMap="BaseResultMap">
     <!--@mbg.generated-->
@@ -112,9 +113,11 @@
   <insert id="insert" keyColumn="ID" keyProperty="ID" parameterType="com.wmms.mutils.entity.TWare" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into t_ware (`Name`, Model, Kind, 
-      Unit, Company)
+      Unit, Company, ItemNumber
+      )
     values (#{name,jdbcType=VARCHAR}, #{model,jdbcType=VARCHAR}, #{kind,jdbcType=BIGINT}, 
-      #{unit,jdbcType=BIGINT}, #{company,jdbcType=BIGINT})
+      #{unit,jdbcType=BIGINT}, #{company,jdbcType=BIGINT}, #{itemNumber,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" keyColumn="ID" keyProperty="ID" parameterType="com.wmms.mutils.entity.TWare" useGeneratedKeys="true">
     <!--@mbg.generated-->
@@ -135,6 +138,9 @@
       <if test="company != null">
         Company,
       </if>
+      <if test="itemNumber != null">
+        ItemNumber,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="name != null">
@@ -151,6 +157,9 @@
       </if>
       <if test="company != null">
         #{company,jdbcType=BIGINT},
+      </if>
+      <if test="itemNumber != null">
+        #{itemNumber,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -183,6 +192,9 @@
       <if test="record.company != null">
         Company = #{record.company,jdbcType=BIGINT},
       </if>
+      <if test="record.itemNumber != null">
+        ItemNumber = #{record.itemNumber,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -196,7 +208,8 @@
       Model = #{record.model,jdbcType=VARCHAR},
       Kind = #{record.kind,jdbcType=BIGINT},
       Unit = #{record.unit,jdbcType=BIGINT},
-      Company = #{record.company,jdbcType=BIGINT}
+      Company = #{record.company,jdbcType=BIGINT},
+      ItemNumber = #{record.itemNumber,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -220,6 +233,9 @@
       <if test="company != null">
         Company = #{company,jdbcType=BIGINT},
       </if>
+      <if test="itemNumber != null">
+        ItemNumber = #{itemNumber,jdbcType=VARCHAR},
+      </if>
     </set>
     where ID = #{ID,jdbcType=BIGINT}
   </update>
@@ -230,7 +246,8 @@
       Model = #{model,jdbcType=VARCHAR},
       Kind = #{kind,jdbcType=BIGINT},
       Unit = #{unit,jdbcType=BIGINT},
-      Company = #{company,jdbcType=BIGINT}
+      Company = #{company,jdbcType=BIGINT},
+      ItemNumber = #{itemNumber,jdbcType=VARCHAR}
     where ID = #{ID,jdbcType=BIGINT}
   </update>
 </mapper>

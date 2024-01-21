@@ -28,6 +28,11 @@ public class TWare {
      */
     private Long company;
 
+    /**
+     * 料号
+     */
+    private String itemNumber;
+
     public Long getID() {
         return ID;
     }
@@ -76,6 +81,14 @@ public class TWare {
         this.company = company;
     }
 
+    public String getItemNumber() {
+        return itemNumber;
+    }
+
+    public void setItemNumber(String itemNumber) {
+        this.itemNumber = itemNumber;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -88,6 +101,7 @@ public class TWare {
         sb.append(", kind=").append(kind);
         sb.append(", unit=").append(unit);
         sb.append(", company=").append(company);
+        sb.append(", itemNumber=").append(itemNumber);
         sb.append("]");
         return sb.toString();
     }

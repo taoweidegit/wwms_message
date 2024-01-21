@@ -483,6 +483,76 @@ public class TWareExample {
             addCriterion("Company not between", value1, value2, "company");
             return (Criteria) this;
         }
+
+        public Criteria andItemNumberIsNull() {
+            addCriterion("ItemNumber is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andItemNumberIsNotNull() {
+            addCriterion("ItemNumber is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andItemNumberEqualTo(String value) {
+            addCriterion("ItemNumber =", value, "itemNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andItemNumberNotEqualTo(String value) {
+            addCriterion("ItemNumber <>", value, "itemNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andItemNumberGreaterThan(String value) {
+            addCriterion("ItemNumber >", value, "itemNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andItemNumberGreaterThanOrEqualTo(String value) {
+            addCriterion("ItemNumber >=", value, "itemNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andItemNumberLessThan(String value) {
+            addCriterion("ItemNumber <", value, "itemNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andItemNumberLessThanOrEqualTo(String value) {
+            addCriterion("ItemNumber <=", value, "itemNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andItemNumberLike(String value) {
+            addCriterion("ItemNumber like", value, "itemNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andItemNumberNotLike(String value) {
+            addCriterion("ItemNumber not like", value, "itemNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andItemNumberIn(List<String> values) {
+            addCriterion("ItemNumber in", values, "itemNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andItemNumberNotIn(List<String> values) {
+            addCriterion("ItemNumber not in", values, "itemNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andItemNumberBetween(String value1, String value2) {
+            addCriterion("ItemNumber between", value1, value2, "itemNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andItemNumberNotBetween(String value1, String value2) {
+            addCriterion("ItemNumber not between", value1, value2, "itemNumber");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

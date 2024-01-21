@@ -2,7 +2,9 @@ package com.wmms.mutils.mapper;
 
 import com.wmms.mutils.entity.TCompany;
 import com.wmms.mutils.entity.TCompanyExample;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -14,6 +16,7 @@ public interface TCompanyMapper {
 
     /**
      * delete by primary key
+     *
      * @param ID primaryKey
      * @return deleteCount
      */
@@ -21,6 +24,7 @@ public interface TCompanyMapper {
 
     /**
      * insert record to table
+     *
      * @param record the record
      * @return insert count
      */
@@ -28,6 +32,7 @@ public interface TCompanyMapper {
 
     /**
      * insert record to table selective
+     *
      * @param record the record
      * @return insert count
      */
@@ -37,6 +42,7 @@ public interface TCompanyMapper {
 
     /**
      * select by primary key
+     *
      * @param ID primary key
      * @return object by primary key
      */
@@ -48,6 +54,7 @@ public interface TCompanyMapper {
 
     /**
      * update record selective
+     *
      * @param record the updated record
      * @return update count
      */
@@ -55,6 +62,7 @@ public interface TCompanyMapper {
 
     /**
      * update record
+     *
      * @param record the updated record
      * @return update count
      */
