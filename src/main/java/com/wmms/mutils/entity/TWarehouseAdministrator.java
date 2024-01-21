@@ -23,6 +23,11 @@ public class TWarehouseAdministrator {
      */
     private Object IS_Master;
 
+    /**
+     * 删除标志
+     */
+    private Object IS_Delete;
+
     public Long getID() {
         return ID;
     }
@@ -63,6 +68,14 @@ public class TWarehouseAdministrator {
         this.IS_Master = IS_Master;
     }
 
+    public Object getIS_Delete() {
+        return IS_Delete;
+    }
+
+    public void setIS_Delete(Object IS_Delete) {
+        this.IS_Delete = IS_Delete;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -74,6 +87,7 @@ public class TWarehouseAdministrator {
         sb.append(", role=").append(role);
         sb.append(", warehouse=").append(warehouse);
         sb.append(", IS_Master=").append(IS_Master);
+        sb.append(", IS_Delete=").append(IS_Delete);
         sb.append("]");
         return sb.toString();
     }

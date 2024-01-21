@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.wmms.mutils.mapper.TWarehouseAdministratorMapper">
-  <resultMap id="BaseResultMap" type="com.wmms.mutils.entity.TWarehouseAdministrator">
+<mapper namespace="com.wmms.mutils.mapper.TCompanyMapper">
+  <resultMap id="BaseResultMap" type="com.wmms.mutils.entity.TCompany">
     <!--@mbg.generated-->
-    <!--@Table t_warehouse_administrator-->
+    <!--@Table t_company-->
     <id column="ID" jdbcType="BIGINT" property="ID" />
-    <result column="Administrator" jdbcType="BIGINT" property="administrator" />
-    <result column="Role" jdbcType="OTHER" property="role" />
-    <result column="Warehouse" jdbcType="BIGINT" property="warehouse" />
-    <result column="IS_Master" jdbcType="OTHER" property="IS_Master" />
-    <result column="IS_Delete" jdbcType="OTHER" property="IS_Delete" />
+    <result column="Name" jdbcType="VARCHAR" property="name" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--@mbg.generated-->
@@ -73,16 +69,16 @@
   </sql>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    ID, Administrator, `Role`, Warehouse, IS_Master, IS_Delete
+    ID, `Name`
   </sql>
-  <select id="selectByExample" parameterType="com.wmms.mutils.entity.TWarehouseAdministratorExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.wmms.mutils.entity.TCompanyExample" resultMap="BaseResultMap">
     <!--@mbg.generated-->
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from t_warehouse_administrator
+    from t_company
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -94,94 +90,62 @@
     <!--@mbg.generated-->
     select 
     <include refid="Base_Column_List" />
-    from t_warehouse_administrator
+    from t_company
     where ID = #{ID,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     <!--@mbg.generated-->
-    delete from t_warehouse_administrator
+    delete from t_company
     where ID = #{ID,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.wmms.mutils.entity.TWarehouseAdministratorExample">
+  <delete id="deleteByExample" parameterType="com.wmms.mutils.entity.TCompanyExample">
     <!--@mbg.generated-->
-    delete from t_warehouse_administrator
+    delete from t_company
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" keyColumn="ID" keyProperty="ID" parameterType="com.wmms.mutils.entity.TWarehouseAdministrator" useGeneratedKeys="true">
+  <insert id="insert" parameterType="com.wmms.mutils.entity.TCompany">
     <!--@mbg.generated-->
-    insert into t_warehouse_administrator (Administrator, `Role`, Warehouse, 
-      IS_Master, IS_Delete)
-    values (#{administrator,jdbcType=BIGINT}, #{role,jdbcType=OTHER}, #{warehouse,jdbcType=BIGINT}, 
-      #{IS_Master,jdbcType=OTHER}, #{IS_Delete,jdbcType=OTHER})
+    insert into t_company (ID, `Name`)
+    values (#{ID,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" keyColumn="ID" keyProperty="ID" parameterType="com.wmms.mutils.entity.TWarehouseAdministrator" useGeneratedKeys="true">
+  <insert id="insertSelective" parameterType="com.wmms.mutils.entity.TCompany">
     <!--@mbg.generated-->
-    insert into t_warehouse_administrator
+    insert into t_company
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="administrator != null">
-        Administrator,
+      <if test="ID != null">
+        ID,
       </if>
-      <if test="role != null">
-        `Role`,
-      </if>
-      <if test="warehouse != null">
-        Warehouse,
-      </if>
-      <if test="IS_Master != null">
-        IS_Master,
-      </if>
-      <if test="IS_Delete != null">
-        IS_Delete,
+      <if test="name != null">
+        `Name`,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="administrator != null">
-        #{administrator,jdbcType=BIGINT},
+      <if test="ID != null">
+        #{ID,jdbcType=BIGINT},
       </if>
-      <if test="role != null">
-        #{role,jdbcType=OTHER},
-      </if>
-      <if test="warehouse != null">
-        #{warehouse,jdbcType=BIGINT},
-      </if>
-      <if test="IS_Master != null">
-        #{IS_Master,jdbcType=OTHER},
-      </if>
-      <if test="IS_Delete != null">
-        #{IS_Delete,jdbcType=OTHER},
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.wmms.mutils.entity.TWarehouseAdministratorExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.wmms.mutils.entity.TCompanyExample" resultType="java.lang.Long">
     <!--@mbg.generated-->
-    select count(*) from t_warehouse_administrator
+    select count(*) from t_company
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
     <!--@mbg.generated-->
-    update t_warehouse_administrator
+    update t_company
     <set>
       <if test="record.ID != null">
         ID = #{record.ID,jdbcType=BIGINT},
       </if>
-      <if test="record.administrator != null">
-        Administrator = #{record.administrator,jdbcType=BIGINT},
-      </if>
-      <if test="record.role != null">
-        `Role` = #{record.role,jdbcType=OTHER},
-      </if>
-      <if test="record.warehouse != null">
-        Warehouse = #{record.warehouse,jdbcType=BIGINT},
-      </if>
-      <if test="record.IS_Master != null">
-        IS_Master = #{record.IS_Master,jdbcType=OTHER},
-      </if>
-      <if test="record.IS_Delete != null">
-        IS_Delete = #{record.IS_Delete,jdbcType=OTHER},
+      <if test="record.name != null">
+        `Name` = #{record.name,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -190,47 +154,27 @@
   </update>
   <update id="updateByExample" parameterType="map">
     <!--@mbg.generated-->
-    update t_warehouse_administrator
+    update t_company
     set ID = #{record.ID,jdbcType=BIGINT},
-      Administrator = #{record.administrator,jdbcType=BIGINT},
-      `Role` = #{record.role,jdbcType=OTHER},
-      Warehouse = #{record.warehouse,jdbcType=BIGINT},
-      IS_Master = #{record.IS_Master,jdbcType=OTHER},
-      IS_Delete = #{record.IS_Delete,jdbcType=OTHER}
+      `Name` = #{record.name,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.wmms.mutils.entity.TWarehouseAdministrator">
+  <update id="updateByPrimaryKeySelective" parameterType="com.wmms.mutils.entity.TCompany">
     <!--@mbg.generated-->
-    update t_warehouse_administrator
+    update t_company
     <set>
-      <if test="administrator != null">
-        Administrator = #{administrator,jdbcType=BIGINT},
-      </if>
-      <if test="role != null">
-        `Role` = #{role,jdbcType=OTHER},
-      </if>
-      <if test="warehouse != null">
-        Warehouse = #{warehouse,jdbcType=BIGINT},
-      </if>
-      <if test="IS_Master != null">
-        IS_Master = #{IS_Master,jdbcType=OTHER},
-      </if>
-      <if test="IS_Delete != null">
-        IS_Delete = #{IS_Delete,jdbcType=OTHER},
+      <if test="name != null">
+        `Name` = #{name,jdbcType=VARCHAR},
       </if>
     </set>
     where ID = #{ID,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.wmms.mutils.entity.TWarehouseAdministrator">
+  <update id="updateByPrimaryKey" parameterType="com.wmms.mutils.entity.TCompany">
     <!--@mbg.generated-->
-    update t_warehouse_administrator
-    set Administrator = #{administrator,jdbcType=BIGINT},
-      `Role` = #{role,jdbcType=OTHER},
-      Warehouse = #{warehouse,jdbcType=BIGINT},
-      IS_Master = #{IS_Master,jdbcType=OTHER},
-      IS_Delete = #{IS_Delete,jdbcType=OTHER}
+    update t_company
+    set `Name` = #{name,jdbcType=VARCHAR}
     where ID = #{ID,jdbcType=BIGINT}
   </update>
 </mapper>

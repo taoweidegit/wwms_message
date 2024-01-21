@@ -403,6 +403,66 @@ public class TWarehouseAdministratorExample {
             addCriterion("IS_Master not between", value1, value2, "IS_Master");
             return (Criteria) this;
         }
+
+        public Criteria andIS_DeleteIsNull() {
+            addCriterion("IS_Delete is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIS_DeleteIsNotNull() {
+            addCriterion("IS_Delete is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIS_DeleteEqualTo(Object value) {
+            addCriterion("IS_Delete =", value, "IS_Delete");
+            return (Criteria) this;
+        }
+
+        public Criteria andIS_DeleteNotEqualTo(Object value) {
+            addCriterion("IS_Delete <>", value, "IS_Delete");
+            return (Criteria) this;
+        }
+
+        public Criteria andIS_DeleteGreaterThan(Object value) {
+            addCriterion("IS_Delete >", value, "IS_Delete");
+            return (Criteria) this;
+        }
+
+        public Criteria andIS_DeleteGreaterThanOrEqualTo(Object value) {
+            addCriterion("IS_Delete >=", value, "IS_Delete");
+            return (Criteria) this;
+        }
+
+        public Criteria andIS_DeleteLessThan(Object value) {
+            addCriterion("IS_Delete <", value, "IS_Delete");
+            return (Criteria) this;
+        }
+
+        public Criteria andIS_DeleteLessThanOrEqualTo(Object value) {
+            addCriterion("IS_Delete <=", value, "IS_Delete");
+            return (Criteria) this;
+        }
+
+        public Criteria andIS_DeleteIn(List<Object> values) {
+            addCriterion("IS_Delete in", values, "IS_Delete");
+            return (Criteria) this;
+        }
+
+        public Criteria andIS_DeleteNotIn(List<Object> values) {
+            addCriterion("IS_Delete not in", values, "IS_Delete");
+            return (Criteria) this;
+        }
+
+        public Criteria andIS_DeleteBetween(Object value1, Object value2) {
+            addCriterion("IS_Delete between", value1, value2, "IS_Delete");
+            return (Criteria) this;
+        }
+
+        public Criteria andIS_DeleteNotBetween(Object value1, Object value2) {
+            addCriterion("IS_Delete not between", value1, value2, "IS_Delete");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {
