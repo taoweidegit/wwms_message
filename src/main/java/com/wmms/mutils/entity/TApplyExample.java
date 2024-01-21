@@ -165,66 +165,6 @@ public class TApplyExample {
             return (Criteria) this;
         }
 
-        public Criteria andInventoryIsNull() {
-            addCriterion("Inventory is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andInventoryIsNotNull() {
-            addCriterion("Inventory is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andInventoryEqualTo(Long value) {
-            addCriterion("Inventory =", value, "inventory");
-            return (Criteria) this;
-        }
-
-        public Criteria andInventoryNotEqualTo(Long value) {
-            addCriterion("Inventory <>", value, "inventory");
-            return (Criteria) this;
-        }
-
-        public Criteria andInventoryGreaterThan(Long value) {
-            addCriterion("Inventory >", value, "inventory");
-            return (Criteria) this;
-        }
-
-        public Criteria andInventoryGreaterThanOrEqualTo(Long value) {
-            addCriterion("Inventory >=", value, "inventory");
-            return (Criteria) this;
-        }
-
-        public Criteria andInventoryLessThan(Long value) {
-            addCriterion("Inventory <", value, "inventory");
-            return (Criteria) this;
-        }
-
-        public Criteria andInventoryLessThanOrEqualTo(Long value) {
-            addCriterion("Inventory <=", value, "inventory");
-            return (Criteria) this;
-        }
-
-        public Criteria andInventoryIn(List<Long> values) {
-            addCriterion("Inventory in", values, "inventory");
-            return (Criteria) this;
-        }
-
-        public Criteria andInventoryNotIn(List<Long> values) {
-            addCriterion("Inventory not in", values, "inventory");
-            return (Criteria) this;
-        }
-
-        public Criteria andInventoryBetween(Long value1, Long value2) {
-            addCriterion("Inventory between", value1, value2, "inventory");
-            return (Criteria) this;
-        }
-
-        public Criteria andInventoryNotBetween(Long value1, Long value2) {
-            addCriterion("Inventory not between", value1, value2, "inventory");
-            return (Criteria) this;
-        }
-
         public Criteria andApplicantIsNull() {
             addCriterion("Applicant is null");
             return (Criteria) this;
@@ -585,123 +525,63 @@ public class TApplyExample {
             return (Criteria) this;
         }
 
-        public Criteria andApprovalTimeIsNull() {
-            addCriterion("ApprovalTime is null");
+        public Criteria andWareIsNull() {
+            addCriterion("Ware is null");
             return (Criteria) this;
         }
 
-        public Criteria andApprovalTimeIsNotNull() {
-            addCriterion("ApprovalTime is not null");
+        public Criteria andWareIsNotNull() {
+            addCriterion("Ware is not null");
             return (Criteria) this;
         }
 
-        public Criteria andApprovalTimeEqualTo(Date value) {
-            addCriterion("ApprovalTime =", value, "approvalTime");
+        public Criteria andWareEqualTo(Long value) {
+            addCriterion("Ware =", value, "ware");
             return (Criteria) this;
         }
 
-        public Criteria andApprovalTimeNotEqualTo(Date value) {
-            addCriterion("ApprovalTime <>", value, "approvalTime");
+        public Criteria andWareNotEqualTo(Long value) {
+            addCriterion("Ware <>", value, "ware");
             return (Criteria) this;
         }
 
-        public Criteria andApprovalTimeGreaterThan(Date value) {
-            addCriterion("ApprovalTime >", value, "approvalTime");
+        public Criteria andWareGreaterThan(Long value) {
+            addCriterion("Ware >", value, "ware");
             return (Criteria) this;
         }
 
-        public Criteria andApprovalTimeGreaterThanOrEqualTo(Date value) {
-            addCriterion("ApprovalTime >=", value, "approvalTime");
+        public Criteria andWareGreaterThanOrEqualTo(Long value) {
+            addCriterion("Ware >=", value, "ware");
             return (Criteria) this;
         }
 
-        public Criteria andApprovalTimeLessThan(Date value) {
-            addCriterion("ApprovalTime <", value, "approvalTime");
+        public Criteria andWareLessThan(Long value) {
+            addCriterion("Ware <", value, "ware");
             return (Criteria) this;
         }
 
-        public Criteria andApprovalTimeLessThanOrEqualTo(Date value) {
-            addCriterion("ApprovalTime <=", value, "approvalTime");
+        public Criteria andWareLessThanOrEqualTo(Long value) {
+            addCriterion("Ware <=", value, "ware");
             return (Criteria) this;
         }
 
-        public Criteria andApprovalTimeIn(List<Date> values) {
-            addCriterion("ApprovalTime in", values, "approvalTime");
+        public Criteria andWareIn(List<Long> values) {
+            addCriterion("Ware in", values, "ware");
             return (Criteria) this;
         }
 
-        public Criteria andApprovalTimeNotIn(List<Date> values) {
-            addCriterion("ApprovalTime not in", values, "approvalTime");
+        public Criteria andWareNotIn(List<Long> values) {
+            addCriterion("Ware not in", values, "ware");
             return (Criteria) this;
         }
 
-        public Criteria andApprovalTimeBetween(Date value1, Date value2) {
-            addCriterion("ApprovalTime between", value1, value2, "approvalTime");
+        public Criteria andWareBetween(Long value1, Long value2) {
+            addCriterion("Ware between", value1, value2, "ware");
             return (Criteria) this;
         }
 
-        public Criteria andApprovalTimeNotBetween(Date value1, Date value2) {
-            addCriterion("ApprovalTime not between", value1, value2, "approvalTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andCancelTimeIsNull() {
-            addCriterion("CancelTime is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andCancelTimeIsNotNull() {
-            addCriterion("CancelTime is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andCancelTimeEqualTo(Date value) {
-            addCriterion("CancelTime =", value, "cancelTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andCancelTimeNotEqualTo(Date value) {
-            addCriterion("CancelTime <>", value, "cancelTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andCancelTimeGreaterThan(Date value) {
-            addCriterion("CancelTime >", value, "cancelTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andCancelTimeGreaterThanOrEqualTo(Date value) {
-            addCriterion("CancelTime >=", value, "cancelTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andCancelTimeLessThan(Date value) {
-            addCriterion("CancelTime <", value, "cancelTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andCancelTimeLessThanOrEqualTo(Date value) {
-            addCriterion("CancelTime <=", value, "cancelTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andCancelTimeIn(List<Date> values) {
-            addCriterion("CancelTime in", values, "cancelTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andCancelTimeNotIn(List<Date> values) {
-            addCriterion("CancelTime not in", values, "cancelTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andCancelTimeBetween(Date value1, Date value2) {
-            addCriterion("CancelTime between", value1, value2, "cancelTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andCancelTimeNotBetween(Date value1, Date value2) {
-            addCriterion("CancelTime not between", value1, value2, "cancelTime");
+        public Criteria andWareNotBetween(Long value1, Long value2) {
+            addCriterion("Ware not between", value1, value2, "ware");
             return (Criteria) this;
         }
     }

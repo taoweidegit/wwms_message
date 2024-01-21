@@ -6,11 +6,6 @@ public class TApply {
     private Long ID;
 
     /**
-     * 库存外键
-     */
-    private Long inventory;
-
-    /**
      * 申请人
      */
     private Long applicant;
@@ -41,14 +36,9 @@ public class TApply {
     private Date warehousingTime;
 
     /**
-     * 批准/拒绝时间
+     * 备件
      */
-    private Date approvalTime;
-
-    /**
-     * 取消时间
-     */
-    private Date cancelTime;
+    private Long ware;
 
     public Long getID() {
         return ID;
@@ -56,14 +46,6 @@ public class TApply {
 
     public void setID(Long ID) {
         this.ID = ID;
-    }
-
-    public Long getInventory() {
-        return inventory;
-    }
-
-    public void setInventory(Long inventory) {
-        this.inventory = inventory;
     }
 
     public Long getApplicant() {
@@ -114,20 +96,12 @@ public class TApply {
         this.warehousingTime = warehousingTime;
     }
 
-    public Date getApprovalTime() {
-        return approvalTime;
+    public Long getWare() {
+        return ware;
     }
 
-    public void setApprovalTime(Date approvalTime) {
-        this.approvalTime = approvalTime;
-    }
-
-    public Date getCancelTime() {
-        return cancelTime;
-    }
-
-    public void setCancelTime(Date cancelTime) {
-        this.cancelTime = cancelTime;
+    public void setWare(Long ware) {
+        this.ware = ware;
     }
 
     @Override
@@ -137,15 +111,13 @@ public class TApply {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", ID=").append(ID);
-        sb.append(", inventory=").append(inventory);
         sb.append(", applicant=").append(applicant);
         sb.append(", quantity=").append(quantity);
         sb.append(", applicationTime=").append(applicationTime);
         sb.append(", type=").append(type);
         sb.append(", state=").append(state);
         sb.append(", warehousingTime=").append(warehousingTime);
-        sb.append(", approvalTime=").append(approvalTime);
-        sb.append(", cancelTime=").append(cancelTime);
+        sb.append(", ware=").append(ware);
         sb.append("]");
         return sb.toString();
     }
