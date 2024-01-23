@@ -225,63 +225,63 @@ public class TApplyExample {
             return (Criteria) this;
         }
 
-        public Criteria andQuantityIsNull() {
-            addCriterion("Quantity is null");
+        public Criteria andWareQuantityIsNull() {
+            addCriterion("WareQuantity is null");
             return (Criteria) this;
         }
 
-        public Criteria andQuantityIsNotNull() {
-            addCriterion("Quantity is not null");
+        public Criteria andWareQuantityIsNotNull() {
+            addCriterion("WareQuantity is not null");
             return (Criteria) this;
         }
 
-        public Criteria andQuantityEqualTo(Integer value) {
-            addCriterion("Quantity =", value, "quantity");
+        public Criteria andWareQuantityEqualTo(Integer value) {
+            addCriterion("WareQuantity =", value, "wareQuantity");
             return (Criteria) this;
         }
 
-        public Criteria andQuantityNotEqualTo(Integer value) {
-            addCriterion("Quantity <>", value, "quantity");
+        public Criteria andWareQuantityNotEqualTo(Integer value) {
+            addCriterion("WareQuantity <>", value, "wareQuantity");
             return (Criteria) this;
         }
 
-        public Criteria andQuantityGreaterThan(Integer value) {
-            addCriterion("Quantity >", value, "quantity");
+        public Criteria andWareQuantityGreaterThan(Integer value) {
+            addCriterion("WareQuantity >", value, "wareQuantity");
             return (Criteria) this;
         }
 
-        public Criteria andQuantityGreaterThanOrEqualTo(Integer value) {
-            addCriterion("Quantity >=", value, "quantity");
+        public Criteria andWareQuantityGreaterThanOrEqualTo(Integer value) {
+            addCriterion("WareQuantity >=", value, "wareQuantity");
             return (Criteria) this;
         }
 
-        public Criteria andQuantityLessThan(Integer value) {
-            addCriterion("Quantity <", value, "quantity");
+        public Criteria andWareQuantityLessThan(Integer value) {
+            addCriterion("WareQuantity <", value, "wareQuantity");
             return (Criteria) this;
         }
 
-        public Criteria andQuantityLessThanOrEqualTo(Integer value) {
-            addCriterion("Quantity <=", value, "quantity");
+        public Criteria andWareQuantityLessThanOrEqualTo(Integer value) {
+            addCriterion("WareQuantity <=", value, "wareQuantity");
             return (Criteria) this;
         }
 
-        public Criteria andQuantityIn(List<Integer> values) {
-            addCriterion("Quantity in", values, "quantity");
+        public Criteria andWareQuantityIn(List<Integer> values) {
+            addCriterion("WareQuantity in", values, "wareQuantity");
             return (Criteria) this;
         }
 
-        public Criteria andQuantityNotIn(List<Integer> values) {
-            addCriterion("Quantity not in", values, "quantity");
+        public Criteria andWareQuantityNotIn(List<Integer> values) {
+            addCriterion("WareQuantity not in", values, "wareQuantity");
             return (Criteria) this;
         }
 
-        public Criteria andQuantityBetween(Integer value1, Integer value2) {
-            addCriterion("Quantity between", value1, value2, "quantity");
+        public Criteria andWareQuantityBetween(Integer value1, Integer value2) {
+            addCriterion("WareQuantity between", value1, value2, "wareQuantity");
             return (Criteria) this;
         }
 
-        public Criteria andQuantityNotBetween(Integer value1, Integer value2) {
-            addCriterion("Quantity not between", value1, value2, "quantity");
+        public Criteria andWareQuantityNotBetween(Integer value1, Integer value2) {
+            addCriterion("WareQuantity not between", value1, value2, "wareQuantity");
             return (Criteria) this;
         }
 
@@ -342,66 +342,6 @@ public class TApplyExample {
 
         public Criteria andApplicationTimeNotBetween(Date value1, Date value2) {
             addCriterion("ApplicationTime not between", value1, value2, "applicationTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andTypeIsNull() {
-            addCriterion("`Type` is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andTypeIsNotNull() {
-            addCriterion("`Type` is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andTypeEqualTo(Object value) {
-            addCriterion("`Type` =", value, "type");
-            return (Criteria) this;
-        }
-
-        public Criteria andTypeNotEqualTo(Object value) {
-            addCriterion("`Type` <>", value, "type");
-            return (Criteria) this;
-        }
-
-        public Criteria andTypeGreaterThan(Object value) {
-            addCriterion("`Type` >", value, "type");
-            return (Criteria) this;
-        }
-
-        public Criteria andTypeGreaterThanOrEqualTo(Object value) {
-            addCriterion("`Type` >=", value, "type");
-            return (Criteria) this;
-        }
-
-        public Criteria andTypeLessThan(Object value) {
-            addCriterion("`Type` <", value, "type");
-            return (Criteria) this;
-        }
-
-        public Criteria andTypeLessThanOrEqualTo(Object value) {
-            addCriterion("`Type` <=", value, "type");
-            return (Criteria) this;
-        }
-
-        public Criteria andTypeIn(List<Object> values) {
-            addCriterion("`Type` in", values, "type");
-            return (Criteria) this;
-        }
-
-        public Criteria andTypeNotIn(List<Object> values) {
-            addCriterion("`Type` not in", values, "type");
-            return (Criteria) this;
-        }
-
-        public Criteria andTypeBetween(Object value1, Object value2) {
-            addCriterion("`Type` between", value1, value2, "type");
-            return (Criteria) this;
-        }
-
-        public Criteria andTypeNotBetween(Object value1, Object value2) {
-            addCriterion("`Type` not between", value1, value2, "type");
             return (Criteria) this;
         }
 
@@ -582,6 +522,66 @@ public class TApplyExample {
 
         public Criteria andWareNotBetween(Long value1, Long value2) {
             addCriterion("Ware not between", value1, value2, "ware");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyQuantityIsNull() {
+            addCriterion("ApplyQuantity is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyQuantityIsNotNull() {
+            addCriterion("ApplyQuantity is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyQuantityEqualTo(Integer value) {
+            addCriterion("ApplyQuantity =", value, "applyQuantity");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyQuantityNotEqualTo(Integer value) {
+            addCriterion("ApplyQuantity <>", value, "applyQuantity");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyQuantityGreaterThan(Integer value) {
+            addCriterion("ApplyQuantity >", value, "applyQuantity");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyQuantityGreaterThanOrEqualTo(Integer value) {
+            addCriterion("ApplyQuantity >=", value, "applyQuantity");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyQuantityLessThan(Integer value) {
+            addCriterion("ApplyQuantity <", value, "applyQuantity");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyQuantityLessThanOrEqualTo(Integer value) {
+            addCriterion("ApplyQuantity <=", value, "applyQuantity");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyQuantityIn(List<Integer> values) {
+            addCriterion("ApplyQuantity in", values, "applyQuantity");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyQuantityNotIn(List<Integer> values) {
+            addCriterion("ApplyQuantity not in", values, "applyQuantity");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyQuantityBetween(Integer value1, Integer value2) {
+            addCriterion("ApplyQuantity between", value1, value2, "applyQuantity");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyQuantityNotBetween(Integer value1, Integer value2) {
+            addCriterion("ApplyQuantity not between", value1, value2, "applyQuantity");
             return (Criteria) this;
         }
     }

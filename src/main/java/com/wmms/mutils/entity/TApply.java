@@ -11,19 +11,14 @@ public class TApply {
     private Long applicant;
 
     /**
-     * 申请货物数量
+     * 入库备件数量
      */
-    private Integer quantity;
+    private Integer wareQuantity;
 
     /**
      * 申请时间
      */
     private Date applicationTime;
-
-    /**
-     * 进/出货
-     */
-    private Object type;
 
     /**
      * 申请状态
@@ -39,6 +34,11 @@ public class TApply {
      * 备件
      */
     private Long ware;
+
+    /**
+     * 申请的备件数量
+     */
+    private Integer applyQuantity;
 
     public Long getID() {
         return ID;
@@ -56,12 +56,12 @@ public class TApply {
         this.applicant = applicant;
     }
 
-    public Integer getQuantity() {
-        return quantity;
+    public Integer getWareQuantity() {
+        return wareQuantity;
     }
 
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
+    public void setWareQuantity(Integer wareQuantity) {
+        this.wareQuantity = wareQuantity;
     }
 
     public Date getApplicationTime() {
@@ -70,14 +70,6 @@ public class TApply {
 
     public void setApplicationTime(Date applicationTime) {
         this.applicationTime = applicationTime;
-    }
-
-    public Object getType() {
-        return type;
-    }
-
-    public void setType(Object type) {
-        this.type = type;
     }
 
     public Object getState() {
@@ -104,6 +96,14 @@ public class TApply {
         this.ware = ware;
     }
 
+    public Integer getApplyQuantity() {
+        return applyQuantity;
+    }
+
+    public void setApplyQuantity(Integer applyQuantity) {
+        this.applyQuantity = applyQuantity;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -112,12 +112,12 @@ public class TApply {
         sb.append("Hash = ").append(hashCode());
         sb.append(", ID=").append(ID);
         sb.append(", applicant=").append(applicant);
-        sb.append(", quantity=").append(quantity);
+        sb.append(", wareQuantity=").append(wareQuantity);
         sb.append(", applicationTime=").append(applicationTime);
-        sb.append(", type=").append(type);
         sb.append(", state=").append(state);
         sb.append(", warehousingTime=").append(warehousingTime);
         sb.append(", ware=").append(ware);
+        sb.append(", applyQuantity=").append(applyQuantity);
         sb.append("]");
         return sb.toString();
     }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.wmms.mutils.mapper.TWareDetailMapper">
-  <resultMap id="BaseResultMap" type="com.wmms.mutils.entity.TWareDetail">
+<mapper namespace="com.wmms.mutils.mapper.TMeterageMapper">
+  <resultMap id="BaseResultMap" type="com.wmms.mutils.entity.TMeterage">
     <!--@mbg.generated-->
-    <!--@Table t_ware_detail-->
+    <!--@Table t_meterage-->
     <id column="ID" jdbcType="BIGINT" property="ID" />
     <result column="Ware" jdbcType="BIGINT" property="ware" />
     <result column="ProductionNumber" jdbcType="VARCHAR" property="productionNumber" />
@@ -12,6 +12,9 @@
     <result column="ValidityPeriod" jdbcType="INTEGER" property="validityPeriod" />
     <result column="Level" jdbcType="VARCHAR" property="level" />
     <result column="CurrentInspectionDate" jdbcType="TIMESTAMP" property="currentInspectionDate" />
+    <result column="MeterageNumber" jdbcType="VARCHAR" property="meterageNumber" />
+    <result column="UsingPlace" jdbcType="VARCHAR" property="usingPlace" />
+    <result column="State" jdbcType="OTHER" property="state" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--@mbg.generated-->
@@ -76,16 +79,16 @@
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
     ID, Ware, ProductionNumber, CertificateNumber, Accuracy, ValidityPeriod, `Level`, 
-    CurrentInspectionDate
+    CurrentInspectionDate, MeterageNumber, UsingPlace, `State`
   </sql>
-  <select id="selectByExample" parameterType="com.wmms.mutils.entity.TWareDetailExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.wmms.mutils.entity.TMeterageExample" resultMap="BaseResultMap">
     <!--@mbg.generated-->
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from t_ware_detail
+    from t_meterage
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -97,33 +100,35 @@
     <!--@mbg.generated-->
     select 
     <include refid="Base_Column_List" />
-    from t_ware_detail
+    from t_meterage
     where ID = #{ID,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     <!--@mbg.generated-->
-    delete from t_ware_detail
+    delete from t_meterage
     where ID = #{ID,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.wmms.mutils.entity.TWareDetailExample">
+  <delete id="deleteByExample" parameterType="com.wmms.mutils.entity.TMeterageExample">
     <!--@mbg.generated-->
-    delete from t_ware_detail
+    delete from t_meterage
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.wmms.mutils.entity.TWareDetail">
+  <insert id="insert" parameterType="com.wmms.mutils.entity.TMeterage">
     <!--@mbg.generated-->
-    insert into t_ware_detail (ID, Ware, ProductionNumber, 
+    insert into t_meterage (ID, Ware, ProductionNumber, 
       CertificateNumber, Accuracy, ValidityPeriod, 
-      `Level`, CurrentInspectionDate)
+      `Level`, CurrentInspectionDate, MeterageNumber, 
+      UsingPlace, `State`)
     values (#{ID,jdbcType=BIGINT}, #{ware,jdbcType=BIGINT}, #{productionNumber,jdbcType=VARCHAR}, 
       #{certificateNumber,jdbcType=VARCHAR}, #{accuracy,jdbcType=VARCHAR}, #{validityPeriod,jdbcType=INTEGER}, 
-      #{level,jdbcType=VARCHAR}, #{currentInspectionDate,jdbcType=TIMESTAMP})
+      #{level,jdbcType=VARCHAR}, #{currentInspectionDate,jdbcType=TIMESTAMP}, #{meterageNumber,jdbcType=VARCHAR}, 
+      #{usingPlace,jdbcType=VARCHAR}, #{state,jdbcType=OTHER})
   </insert>
-  <insert id="insertSelective" parameterType="com.wmms.mutils.entity.TWareDetail">
+  <insert id="insertSelective" parameterType="com.wmms.mutils.entity.TMeterage">
     <!--@mbg.generated-->
-    insert into t_ware_detail
+    insert into t_meterage
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="ID != null">
         ID,
@@ -148,6 +153,15 @@
       </if>
       <if test="currentInspectionDate != null">
         CurrentInspectionDate,
+      </if>
+      <if test="meterageNumber != null">
+        MeterageNumber,
+      </if>
+      <if test="usingPlace != null">
+        UsingPlace,
+      </if>
+      <if test="state != null">
+        `State`,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -175,18 +189,27 @@
       <if test="currentInspectionDate != null">
         #{currentInspectionDate,jdbcType=TIMESTAMP},
       </if>
+      <if test="meterageNumber != null">
+        #{meterageNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="usingPlace != null">
+        #{usingPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=OTHER},
+      </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.wmms.mutils.entity.TWareDetailExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.wmms.mutils.entity.TMeterageExample" resultType="java.lang.Long">
     <!--@mbg.generated-->
-    select count(*) from t_ware_detail
+    select count(*) from t_meterage
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
     <!--@mbg.generated-->
-    update t_ware_detail
+    update t_meterage
     <set>
       <if test="record.ID != null">
         ID = #{record.ID,jdbcType=BIGINT},
@@ -212,6 +235,15 @@
       <if test="record.currentInspectionDate != null">
         CurrentInspectionDate = #{record.currentInspectionDate,jdbcType=TIMESTAMP},
       </if>
+      <if test="record.meterageNumber != null">
+        MeterageNumber = #{record.meterageNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.usingPlace != null">
+        UsingPlace = #{record.usingPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="record.state != null">
+        `State` = #{record.state,jdbcType=OTHER},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -219,7 +251,7 @@
   </update>
   <update id="updateByExample" parameterType="map">
     <!--@mbg.generated-->
-    update t_ware_detail
+    update t_meterage
     set ID = #{record.ID,jdbcType=BIGINT},
       Ware = #{record.ware,jdbcType=BIGINT},
       ProductionNumber = #{record.productionNumber,jdbcType=VARCHAR},
@@ -227,14 +259,17 @@
       Accuracy = #{record.accuracy,jdbcType=VARCHAR},
       ValidityPeriod = #{record.validityPeriod,jdbcType=INTEGER},
       `Level` = #{record.level,jdbcType=VARCHAR},
-      CurrentInspectionDate = #{record.currentInspectionDate,jdbcType=TIMESTAMP}
+      CurrentInspectionDate = #{record.currentInspectionDate,jdbcType=TIMESTAMP},
+      MeterageNumber = #{record.meterageNumber,jdbcType=VARCHAR},
+      UsingPlace = #{record.usingPlace,jdbcType=VARCHAR},
+      `State` = #{record.state,jdbcType=OTHER}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.wmms.mutils.entity.TWareDetail">
+  <update id="updateByPrimaryKeySelective" parameterType="com.wmms.mutils.entity.TMeterage">
     <!--@mbg.generated-->
-    update t_ware_detail
+    update t_meterage
     <set>
       <if test="ware != null">
         Ware = #{ware,jdbcType=BIGINT},
@@ -257,19 +292,31 @@
       <if test="currentInspectionDate != null">
         CurrentInspectionDate = #{currentInspectionDate,jdbcType=TIMESTAMP},
       </if>
+      <if test="meterageNumber != null">
+        MeterageNumber = #{meterageNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="usingPlace != null">
+        UsingPlace = #{usingPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        `State` = #{state,jdbcType=OTHER},
+      </if>
     </set>
     where ID = #{ID,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.wmms.mutils.entity.TWareDetail">
+  <update id="updateByPrimaryKey" parameterType="com.wmms.mutils.entity.TMeterage">
     <!--@mbg.generated-->
-    update t_ware_detail
+    update t_meterage
     set Ware = #{ware,jdbcType=BIGINT},
       ProductionNumber = #{productionNumber,jdbcType=VARCHAR},
       CertificateNumber = #{certificateNumber,jdbcType=VARCHAR},
       Accuracy = #{accuracy,jdbcType=VARCHAR},
       ValidityPeriod = #{validityPeriod,jdbcType=INTEGER},
       `Level` = #{level,jdbcType=VARCHAR},
-      CurrentInspectionDate = #{currentInspectionDate,jdbcType=TIMESTAMP}
+      CurrentInspectionDate = #{currentInspectionDate,jdbcType=TIMESTAMP},
+      MeterageNumber = #{meterageNumber,jdbcType=VARCHAR},
+      UsingPlace = #{usingPlace,jdbcType=VARCHAR},
+      `State` = #{state,jdbcType=OTHER}
     where ID = #{ID,jdbcType=BIGINT}
   </update>
 </mapper>

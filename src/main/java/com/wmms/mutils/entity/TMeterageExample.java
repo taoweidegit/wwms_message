@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class TWareDetailExample {
+public class TMeterageExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public TWareDetailExample() {
+    public TMeterageExample() {
         oredCriteria = new ArrayList<>();
     }
 
@@ -622,6 +622,206 @@ public class TWareDetailExample {
 
         public Criteria andCurrentInspectionDateNotBetween(Date value1, Date value2) {
             addCriterion("CurrentInspectionDate not between", value1, value2, "currentInspectionDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andMeterageNumberIsNull() {
+            addCriterion("MeterageNumber is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMeterageNumberIsNotNull() {
+            addCriterion("MeterageNumber is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMeterageNumberEqualTo(String value) {
+            addCriterion("MeterageNumber =", value, "meterageNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andMeterageNumberNotEqualTo(String value) {
+            addCriterion("MeterageNumber <>", value, "meterageNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andMeterageNumberGreaterThan(String value) {
+            addCriterion("MeterageNumber >", value, "meterageNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andMeterageNumberGreaterThanOrEqualTo(String value) {
+            addCriterion("MeterageNumber >=", value, "meterageNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andMeterageNumberLessThan(String value) {
+            addCriterion("MeterageNumber <", value, "meterageNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andMeterageNumberLessThanOrEqualTo(String value) {
+            addCriterion("MeterageNumber <=", value, "meterageNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andMeterageNumberLike(String value) {
+            addCriterion("MeterageNumber like", value, "meterageNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andMeterageNumberNotLike(String value) {
+            addCriterion("MeterageNumber not like", value, "meterageNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andMeterageNumberIn(List<String> values) {
+            addCriterion("MeterageNumber in", values, "meterageNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andMeterageNumberNotIn(List<String> values) {
+            addCriterion("MeterageNumber not in", values, "meterageNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andMeterageNumberBetween(String value1, String value2) {
+            addCriterion("MeterageNumber between", value1, value2, "meterageNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andMeterageNumberNotBetween(String value1, String value2) {
+            addCriterion("MeterageNumber not between", value1, value2, "meterageNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsingPlaceIsNull() {
+            addCriterion("UsingPlace is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsingPlaceIsNotNull() {
+            addCriterion("UsingPlace is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsingPlaceEqualTo(String value) {
+            addCriterion("UsingPlace =", value, "usingPlace");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsingPlaceNotEqualTo(String value) {
+            addCriterion("UsingPlace <>", value, "usingPlace");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsingPlaceGreaterThan(String value) {
+            addCriterion("UsingPlace >", value, "usingPlace");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsingPlaceGreaterThanOrEqualTo(String value) {
+            addCriterion("UsingPlace >=", value, "usingPlace");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsingPlaceLessThan(String value) {
+            addCriterion("UsingPlace <", value, "usingPlace");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsingPlaceLessThanOrEqualTo(String value) {
+            addCriterion("UsingPlace <=", value, "usingPlace");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsingPlaceLike(String value) {
+            addCriterion("UsingPlace like", value, "usingPlace");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsingPlaceNotLike(String value) {
+            addCriterion("UsingPlace not like", value, "usingPlace");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsingPlaceIn(List<String> values) {
+            addCriterion("UsingPlace in", values, "usingPlace");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsingPlaceNotIn(List<String> values) {
+            addCriterion("UsingPlace not in", values, "usingPlace");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsingPlaceBetween(String value1, String value2) {
+            addCriterion("UsingPlace between", value1, value2, "usingPlace");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsingPlaceNotBetween(String value1, String value2) {
+            addCriterion("UsingPlace not between", value1, value2, "usingPlace");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateIsNull() {
+            addCriterion("`State` is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateIsNotNull() {
+            addCriterion("`State` is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateEqualTo(Object value) {
+            addCriterion("`State` =", value, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateNotEqualTo(Object value) {
+            addCriterion("`State` <>", value, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateGreaterThan(Object value) {
+            addCriterion("`State` >", value, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateGreaterThanOrEqualTo(Object value) {
+            addCriterion("`State` >=", value, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateLessThan(Object value) {
+            addCriterion("`State` <", value, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateLessThanOrEqualTo(Object value) {
+            addCriterion("`State` <=", value, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateIn(List<Object> values) {
+            addCriterion("`State` in", values, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateNotIn(List<Object> values) {
+            addCriterion("`State` not in", values, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateBetween(Object value1, Object value2) {
+            addCriterion("`State` between", value1, value2, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateNotBetween(Object value1, Object value2) {
+            addCriterion("`State` not between", value1, value2, "state");
             return (Criteria) this;
         }
     }

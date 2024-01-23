@@ -2,7 +2,7 @@ package com.wmms.mutils.entity;
 
 import java.util.Date;
 
-public class TWareDetail {
+public class TMeterage {
     private Long ID;
 
     /**
@@ -39,6 +39,21 @@ public class TWareDetail {
     * 最近检验日期
     */
     private Date currentInspectionDate;
+
+    /**
+    * 计量编号
+    */
+    private String meterageNumber;
+
+    /**
+    * 使用地点
+    */
+    private String usingPlace;
+
+    /**
+    * 计量器具的状态
+    */
+    private Object state;
 
     public Long getID() {
         return ID;
@@ -104,6 +119,30 @@ public class TWareDetail {
         this.currentInspectionDate = currentInspectionDate;
     }
 
+    public String getMeterageNumber() {
+        return meterageNumber;
+    }
+
+    public void setMeterageNumber(String meterageNumber) {
+        this.meterageNumber = meterageNumber;
+    }
+
+    public String getUsingPlace() {
+        return usingPlace;
+    }
+
+    public void setUsingPlace(String usingPlace) {
+        this.usingPlace = usingPlace;
+    }
+
+    public Object getState() {
+        return state;
+    }
+
+    public void setState(Object state) {
+        this.state = state;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -118,6 +157,9 @@ public class TWareDetail {
         sb.append(", validityPeriod=").append(validityPeriod);
         sb.append(", level=").append(level);
         sb.append(", currentInspectionDate=").append(currentInspectionDate);
+        sb.append(", meterageNumber=").append(meterageNumber);
+        sb.append(", usingPlace=").append(usingPlace);
+        sb.append(", state=").append(state);
         sb.append("]");
         return sb.toString();
     }
