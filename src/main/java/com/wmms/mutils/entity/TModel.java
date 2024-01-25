@@ -4,23 +4,23 @@ public class TModel {
     private Long ID;
 
     /**
-    * 类别
-    */
+     * 类别
+     */
     private Long kind;
 
     /**
-    * 详细内容
-    */
+     * 详细内容
+     */
     private String name;
 
     /**
-    * 生产厂家
-    */
+     * 生产厂家
+     */
     private Long company;
 
     /**
-    * 单位
-    */
+     * 单位
+     */
     private Long unit;
 
     public Long getID() {
