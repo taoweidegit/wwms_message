@@ -3,14 +3,14 @@ package com.wmms.mutils.entity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TWareExample {
+public class TModelExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public TWareExample() {
+    public TModelExample() {
         oredCriteria = new ArrayList<>();
     }
 
@@ -164,6 +164,66 @@ public class TWareExample {
             return (Criteria) this;
         }
 
+        public Criteria andKindIsNull() {
+            addCriterion("Kind is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andKindIsNotNull() {
+            addCriterion("Kind is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andKindEqualTo(Long value) {
+            addCriterion("Kind =", value, "kind");
+            return (Criteria) this;
+        }
+
+        public Criteria andKindNotEqualTo(Long value) {
+            addCriterion("Kind <>", value, "kind");
+            return (Criteria) this;
+        }
+
+        public Criteria andKindGreaterThan(Long value) {
+            addCriterion("Kind >", value, "kind");
+            return (Criteria) this;
+        }
+
+        public Criteria andKindGreaterThanOrEqualTo(Long value) {
+            addCriterion("Kind >=", value, "kind");
+            return (Criteria) this;
+        }
+
+        public Criteria andKindLessThan(Long value) {
+            addCriterion("Kind <", value, "kind");
+            return (Criteria) this;
+        }
+
+        public Criteria andKindLessThanOrEqualTo(Long value) {
+            addCriterion("Kind <=", value, "kind");
+            return (Criteria) this;
+        }
+
+        public Criteria andKindIn(List<Long> values) {
+            addCriterion("Kind in", values, "kind");
+            return (Criteria) this;
+        }
+
+        public Criteria andKindNotIn(List<Long> values) {
+            addCriterion("Kind not in", values, "kind");
+            return (Criteria) this;
+        }
+
+        public Criteria andKindBetween(Long value1, Long value2) {
+            addCriterion("Kind between", value1, value2, "kind");
+            return (Criteria) this;
+        }
+
+        public Criteria andKindNotBetween(Long value1, Long value2) {
+            addCriterion("Kind not between", value1, value2, "kind");
+            return (Criteria) this;
+        }
+
         public Criteria andNameIsNull() {
             addCriterion("`Name` is null");
             return (Criteria) this;
@@ -234,193 +294,123 @@ public class TWareExample {
             return (Criteria) this;
         }
 
-        public Criteria andModelIsNull() {
-            addCriterion("Model is null");
+        public Criteria andCompanyIsNull() {
+            addCriterion("Company is null");
             return (Criteria) this;
         }
 
-        public Criteria andModelIsNotNull() {
-            addCriterion("Model is not null");
+        public Criteria andCompanyIsNotNull() {
+            addCriterion("Company is not null");
             return (Criteria) this;
         }
 
-        public Criteria andModelEqualTo(Long value) {
-            addCriterion("Model =", value, "model");
+        public Criteria andCompanyEqualTo(Long value) {
+            addCriterion("Company =", value, "company");
             return (Criteria) this;
         }
 
-        public Criteria andModelNotEqualTo(Long value) {
-            addCriterion("Model <>", value, "model");
+        public Criteria andCompanyNotEqualTo(Long value) {
+            addCriterion("Company <>", value, "company");
             return (Criteria) this;
         }
 
-        public Criteria andModelGreaterThan(Long value) {
-            addCriterion("Model >", value, "model");
+        public Criteria andCompanyGreaterThan(Long value) {
+            addCriterion("Company >", value, "company");
             return (Criteria) this;
         }
 
-        public Criteria andModelGreaterThanOrEqualTo(Long value) {
-            addCriterion("Model >=", value, "model");
+        public Criteria andCompanyGreaterThanOrEqualTo(Long value) {
+            addCriterion("Company >=", value, "company");
             return (Criteria) this;
         }
 
-        public Criteria andModelLessThan(Long value) {
-            addCriterion("Model <", value, "model");
+        public Criteria andCompanyLessThan(Long value) {
+            addCriterion("Company <", value, "company");
             return (Criteria) this;
         }
 
-        public Criteria andModelLessThanOrEqualTo(Long value) {
-            addCriterion("Model <=", value, "model");
+        public Criteria andCompanyLessThanOrEqualTo(Long value) {
+            addCriterion("Company <=", value, "company");
             return (Criteria) this;
         }
 
-        public Criteria andModelIn(List<Long> values) {
-            addCriterion("Model in", values, "model");
+        public Criteria andCompanyIn(List<Long> values) {
+            addCriterion("Company in", values, "company");
             return (Criteria) this;
         }
 
-        public Criteria andModelNotIn(List<Long> values) {
-            addCriterion("Model not in", values, "model");
+        public Criteria andCompanyNotIn(List<Long> values) {
+            addCriterion("Company not in", values, "company");
             return (Criteria) this;
         }
 
-        public Criteria andModelBetween(Long value1, Long value2) {
-            addCriterion("Model between", value1, value2, "model");
+        public Criteria andCompanyBetween(Long value1, Long value2) {
+            addCriterion("Company between", value1, value2, "company");
             return (Criteria) this;
         }
 
-        public Criteria andModelNotBetween(Long value1, Long value2) {
-            addCriterion("Model not between", value1, value2, "model");
+        public Criteria andCompanyNotBetween(Long value1, Long value2) {
+            addCriterion("Company not between", value1, value2, "company");
             return (Criteria) this;
         }
 
-        public Criteria andKindIsNull() {
-            addCriterion("Kind is null");
+        public Criteria andUnitIsNull() {
+            addCriterion("Unit is null");
             return (Criteria) this;
         }
 
-        public Criteria andKindIsNotNull() {
-            addCriterion("Kind is not null");
+        public Criteria andUnitIsNotNull() {
+            addCriterion("Unit is not null");
             return (Criteria) this;
         }
 
-        public Criteria andKindEqualTo(Long value) {
-            addCriterion("Kind =", value, "kind");
+        public Criteria andUnitEqualTo(Long value) {
+            addCriterion("Unit =", value, "unit");
             return (Criteria) this;
         }
 
-        public Criteria andKindNotEqualTo(Long value) {
-            addCriterion("Kind <>", value, "kind");
+        public Criteria andUnitNotEqualTo(Long value) {
+            addCriterion("Unit <>", value, "unit");
             return (Criteria) this;
         }
 
-        public Criteria andKindGreaterThan(Long value) {
-            addCriterion("Kind >", value, "kind");
+        public Criteria andUnitGreaterThan(Long value) {
+            addCriterion("Unit >", value, "unit");
             return (Criteria) this;
         }
 
-        public Criteria andKindGreaterThanOrEqualTo(Long value) {
-            addCriterion("Kind >=", value, "kind");
+        public Criteria andUnitGreaterThanOrEqualTo(Long value) {
+            addCriterion("Unit >=", value, "unit");
             return (Criteria) this;
         }
 
-        public Criteria andKindLessThan(Long value) {
-            addCriterion("Kind <", value, "kind");
+        public Criteria andUnitLessThan(Long value) {
+            addCriterion("Unit <", value, "unit");
             return (Criteria) this;
         }
 
-        public Criteria andKindLessThanOrEqualTo(Long value) {
-            addCriterion("Kind <=", value, "kind");
+        public Criteria andUnitLessThanOrEqualTo(Long value) {
+            addCriterion("Unit <=", value, "unit");
             return (Criteria) this;
         }
 
-        public Criteria andKindIn(List<Long> values) {
-            addCriterion("Kind in", values, "kind");
+        public Criteria andUnitIn(List<Long> values) {
+            addCriterion("Unit in", values, "unit");
             return (Criteria) this;
         }
 
-        public Criteria andKindNotIn(List<Long> values) {
-            addCriterion("Kind not in", values, "kind");
+        public Criteria andUnitNotIn(List<Long> values) {
+            addCriterion("Unit not in", values, "unit");
             return (Criteria) this;
         }
 
-        public Criteria andKindBetween(Long value1, Long value2) {
-            addCriterion("Kind between", value1, value2, "kind");
+        public Criteria andUnitBetween(Long value1, Long value2) {
+            addCriterion("Unit between", value1, value2, "unit");
             return (Criteria) this;
         }
 
-        public Criteria andKindNotBetween(Long value1, Long value2) {
-            addCriterion("Kind not between", value1, value2, "kind");
-            return (Criteria) this;
-        }
-
-        public Criteria andItemNumberIsNull() {
-            addCriterion("ItemNumber is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andItemNumberIsNotNull() {
-            addCriterion("ItemNumber is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andItemNumberEqualTo(String value) {
-            addCriterion("ItemNumber =", value, "itemNumber");
-            return (Criteria) this;
-        }
-
-        public Criteria andItemNumberNotEqualTo(String value) {
-            addCriterion("ItemNumber <>", value, "itemNumber");
-            return (Criteria) this;
-        }
-
-        public Criteria andItemNumberGreaterThan(String value) {
-            addCriterion("ItemNumber >", value, "itemNumber");
-            return (Criteria) this;
-        }
-
-        public Criteria andItemNumberGreaterThanOrEqualTo(String value) {
-            addCriterion("ItemNumber >=", value, "itemNumber");
-            return (Criteria) this;
-        }
-
-        public Criteria andItemNumberLessThan(String value) {
-            addCriterion("ItemNumber <", value, "itemNumber");
-            return (Criteria) this;
-        }
-
-        public Criteria andItemNumberLessThanOrEqualTo(String value) {
-            addCriterion("ItemNumber <=", value, "itemNumber");
-            return (Criteria) this;
-        }
-
-        public Criteria andItemNumberLike(String value) {
-            addCriterion("ItemNumber like", value, "itemNumber");
-            return (Criteria) this;
-        }
-
-        public Criteria andItemNumberNotLike(String value) {
-            addCriterion("ItemNumber not like", value, "itemNumber");
-            return (Criteria) this;
-        }
-
-        public Criteria andItemNumberIn(List<String> values) {
-            addCriterion("ItemNumber in", values, "itemNumber");
-            return (Criteria) this;
-        }
-
-        public Criteria andItemNumberNotIn(List<String> values) {
-            addCriterion("ItemNumber not in", values, "itemNumber");
-            return (Criteria) this;
-        }
-
-        public Criteria andItemNumberBetween(String value1, String value2) {
-            addCriterion("ItemNumber between", value1, value2, "itemNumber");
-            return (Criteria) this;
-        }
-
-        public Criteria andItemNumberNotBetween(String value1, String value2) {
-            addCriterion("ItemNumber not between", value1, value2, "itemNumber");
+        public Criteria andUnitNotBetween(Long value1, Long value2) {
+            addCriterion("Unit not between", value1, value2, "unit");
             return (Criteria) this;
         }
     }

@@ -6,10 +6,8 @@
     <!--@Table t_ware-->
     <id column="ID" jdbcType="BIGINT" property="ID" />
     <result column="Name" jdbcType="VARCHAR" property="name" />
-    <result column="Model" jdbcType="VARCHAR" property="model" />
+    <result column="Model" jdbcType="BIGINT" property="model" />
     <result column="Kind" jdbcType="BIGINT" property="kind" />
-    <result column="Unit" jdbcType="BIGINT" property="unit" />
-    <result column="Company" jdbcType="BIGINT" property="company" />
     <result column="ItemNumber" jdbcType="VARCHAR" property="itemNumber" />
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -74,7 +72,7 @@
   </sql>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    ID, `Name`, Model, Kind, Unit, Company, ItemNumber
+    ID, `Name`, Model, Kind, ItemNumber
   </sql>
   <select id="selectByExample" parameterType="com.wmms.mutils.entity.TWareExample" resultMap="BaseResultMap">
     <!--@mbg.generated-->
@@ -113,11 +111,9 @@
   <insert id="insert" keyColumn="ID" keyProperty="ID" parameterType="com.wmms.mutils.entity.TWare" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into t_ware (`Name`, Model, Kind, 
-      Unit, Company, ItemNumber
-      )
-    values (#{name,jdbcType=VARCHAR}, #{model,jdbcType=VARCHAR}, #{kind,jdbcType=BIGINT}, 
-      #{unit,jdbcType=BIGINT}, #{company,jdbcType=BIGINT}, #{itemNumber,jdbcType=VARCHAR}
-      )
+      ItemNumber)
+    values (#{name,jdbcType=VARCHAR}, #{model,jdbcType=BIGINT}, #{kind,jdbcType=BIGINT}, 
+      #{itemNumber,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" keyColumn="ID" keyProperty="ID" parameterType="com.wmms.mutils.entity.TWare" useGeneratedKeys="true">
     <!--@mbg.generated-->
@@ -132,12 +128,6 @@
       <if test="kind != null">
         Kind,
       </if>
-      <if test="unit != null">
-        Unit,
-      </if>
-      <if test="company != null">
-        Company,
-      </if>
       <if test="itemNumber != null">
         ItemNumber,
       </if>
@@ -147,16 +137,10 @@
         #{name,jdbcType=VARCHAR},
       </if>
       <if test="model != null">
-        #{model,jdbcType=VARCHAR},
+        #{model,jdbcType=BIGINT},
       </if>
       <if test="kind != null">
         #{kind,jdbcType=BIGINT},
-      </if>
-      <if test="unit != null">
-        #{unit,jdbcType=BIGINT},
-      </if>
-      <if test="company != null">
-        #{company,jdbcType=BIGINT},
       </if>
       <if test="itemNumber != null">
         #{itemNumber,jdbcType=VARCHAR},
@@ -181,16 +165,10 @@
         `Name` = #{record.name,jdbcType=VARCHAR},
       </if>
       <if test="record.model != null">
-        Model = #{record.model,jdbcType=VARCHAR},
+        Model = #{record.model,jdbcType=BIGINT},
       </if>
       <if test="record.kind != null">
         Kind = #{record.kind,jdbcType=BIGINT},
-      </if>
-      <if test="record.unit != null">
-        Unit = #{record.unit,jdbcType=BIGINT},
-      </if>
-      <if test="record.company != null">
-        Company = #{record.company,jdbcType=BIGINT},
       </if>
       <if test="record.itemNumber != null">
         ItemNumber = #{record.itemNumber,jdbcType=VARCHAR},
@@ -205,10 +183,8 @@
     update t_ware
     set ID = #{record.ID,jdbcType=BIGINT},
       `Name` = #{record.name,jdbcType=VARCHAR},
-      Model = #{record.model,jdbcType=VARCHAR},
+      Model = #{record.model,jdbcType=BIGINT},
       Kind = #{record.kind,jdbcType=BIGINT},
-      Unit = #{record.unit,jdbcType=BIGINT},
-      Company = #{record.company,jdbcType=BIGINT},
       ItemNumber = #{record.itemNumber,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -222,16 +198,10 @@
         `Name` = #{name,jdbcType=VARCHAR},
       </if>
       <if test="model != null">
-        Model = #{model,jdbcType=VARCHAR},
+        Model = #{model,jdbcType=BIGINT},
       </if>
       <if test="kind != null">
         Kind = #{kind,jdbcType=BIGINT},
-      </if>
-      <if test="unit != null">
-        Unit = #{unit,jdbcType=BIGINT},
-      </if>
-      <if test="company != null">
-        Company = #{company,jdbcType=BIGINT},
       </if>
       <if test="itemNumber != null">
         ItemNumber = #{itemNumber,jdbcType=VARCHAR},
@@ -243,10 +213,8 @@
     <!--@mbg.generated-->
     update t_ware
     set `Name` = #{name,jdbcType=VARCHAR},
-      Model = #{model,jdbcType=VARCHAR},
+      Model = #{model,jdbcType=BIGINT},
       Kind = #{kind,jdbcType=BIGINT},
-      Unit = #{unit,jdbcType=BIGINT},
-      Company = #{company,jdbcType=BIGINT},
       ItemNumber = #{itemNumber,jdbcType=VARCHAR}
     where ID = #{ID,jdbcType=BIGINT}
   </update>

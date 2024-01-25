@@ -11,22 +11,12 @@ public class TWare {
     /**
      * 型号
      */
-    private String model;
+    private Long model;
 
     /**
      * 种类
      */
     private Long kind;
-
-    /**
-     * 物品单位
-     */
-    private Long unit;
-
-    /**
-     * 公司
-     */
-    private Long company;
 
     /**
      * 料号
@@ -49,11 +39,11 @@ public class TWare {
         this.name = name;
     }
 
-    public String getModel() {
+    public Long getModel() {
         return model;
     }
 
-    public void setModel(String model) {
+    public void setModel(Long model) {
         this.model = model;
     }
 
@@ -63,22 +53,6 @@ public class TWare {
 
     public void setKind(Long kind) {
         this.kind = kind;
-    }
-
-    public Long getUnit() {
-        return unit;
-    }
-
-    public void setUnit(Long unit) {
-        this.unit = unit;
-    }
-
-    public Long getCompany() {
-        return company;
-    }
-
-    public void setCompany(Long company) {
-        this.company = company;
     }
 
     public String getItemNumber() {
@@ -99,8 +73,6 @@ public class TWare {
         sb.append(", name=").append(name);
         sb.append(", model=").append(model);
         sb.append(", kind=").append(kind);
-        sb.append(", unit=").append(unit);
-        sb.append(", company=").append(company);
         sb.append(", itemNumber=").append(itemNumber);
         sb.append("]");
         return sb.toString();

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.wmms.mutils.mapper.TCompanyMapper">
-  <resultMap id="BaseResultMap" type="com.wmms.mutils.entity.TCompany">
+<mapper namespace="com.wmms.mutils.mapper.TApplyProcessMapper">
+  <resultMap id="BaseResultMap" type="com.wmms.mutils.entity.TApplyProcess">
     <!--@mbg.generated-->
-    <!--@Table t_company-->
+    <!--@Table t_apply_process-->
     <id column="ID" jdbcType="BIGINT" property="ID" />
-    <result column="Name" jdbcType="VARCHAR" property="name" />
+    <result column="DeployId" jdbcType="VARCHAR" property="deployId" />
+    <result column="State" jdbcType="OTHER" property="state" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--@mbg.generated-->
@@ -69,16 +70,16 @@
   </sql>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    ID, `Name`
+    ID, DeployId, `State`
   </sql>
-  <select id="selectByExample" parameterType="com.wmms.mutils.entity.TCompanyExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.wmms.mutils.entity.TApplyProcessExample" resultMap="BaseResultMap">
     <!--@mbg.generated-->
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from t_company
+    from t_apply_process
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -90,56 +91,65 @@
     <!--@mbg.generated-->
     select 
     <include refid="Base_Column_List" />
-    from t_company
+    from t_apply_process
     where ID = #{ID,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     <!--@mbg.generated-->
-    delete from t_company
+    delete from t_apply_process
     where ID = #{ID,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.wmms.mutils.entity.TCompanyExample">
+  <delete id="deleteByExample" parameterType="com.wmms.mutils.entity.TApplyProcessExample">
     <!--@mbg.generated-->
-    delete from t_company
+    delete from t_apply_process
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" keyColumn="ID" keyProperty="ID" parameterType="com.wmms.mutils.entity.TCompany" useGeneratedKeys="true">
+  <insert id="insert" keyColumn="ID" keyProperty="ID" parameterType="com.wmms.mutils.entity.TApplyProcess" useGeneratedKeys="true">
     <!--@mbg.generated-->
-    insert into t_company (`Name`)
-    values (#{name,jdbcType=VARCHAR})
+    insert into t_apply_process (DeployId, `State`)
+    values (#{deployId,jdbcType=VARCHAR}, #{state,jdbcType=OTHER})
   </insert>
-  <insert id="insertSelective" keyColumn="ID" keyProperty="ID" parameterType="com.wmms.mutils.entity.TCompany" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="ID" keyProperty="ID" parameterType="com.wmms.mutils.entity.TApplyProcess" useGeneratedKeys="true">
     <!--@mbg.generated-->
-    insert into t_company
+    insert into t_apply_process
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="name != null">
-        `Name`,
+      <if test="deployId != null">
+        DeployId,
+      </if>
+      <if test="state != null">
+        `State`,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="name != null">
-        #{name,jdbcType=VARCHAR},
+      <if test="deployId != null">
+        #{deployId,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=OTHER},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.wmms.mutils.entity.TCompanyExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.wmms.mutils.entity.TApplyProcessExample" resultType="java.lang.Long">
     <!--@mbg.generated-->
-    select count(*) from t_company
+    select count(*) from t_apply_process
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
     <!--@mbg.generated-->
-    update t_company
+    update t_apply_process
     <set>
       <if test="record.ID != null">
         ID = #{record.ID,jdbcType=BIGINT},
       </if>
-      <if test="record.name != null">
-        `Name` = #{record.name,jdbcType=VARCHAR},
+      <if test="record.deployId != null">
+        DeployId = #{record.deployId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.state != null">
+        `State` = #{record.state,jdbcType=OTHER},
       </if>
     </set>
     <if test="_parameter != null">
@@ -148,27 +158,32 @@
   </update>
   <update id="updateByExample" parameterType="map">
     <!--@mbg.generated-->
-    update t_company
+    update t_apply_process
     set ID = #{record.ID,jdbcType=BIGINT},
-      `Name` = #{record.name,jdbcType=VARCHAR}
+      DeployId = #{record.deployId,jdbcType=VARCHAR},
+      `State` = #{record.state,jdbcType=OTHER}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.wmms.mutils.entity.TCompany">
+  <update id="updateByPrimaryKeySelective" parameterType="com.wmms.mutils.entity.TApplyProcess">
     <!--@mbg.generated-->
-    update t_company
+    update t_apply_process
     <set>
-      <if test="name != null">
-        `Name` = #{name,jdbcType=VARCHAR},
+      <if test="deployId != null">
+        DeployId = #{deployId,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        `State` = #{state,jdbcType=OTHER},
       </if>
     </set>
     where ID = #{ID,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.wmms.mutils.entity.TCompany">
+  <update id="updateByPrimaryKey" parameterType="com.wmms.mutils.entity.TApplyProcess">
     <!--@mbg.generated-->
-    update t_company
-    set `Name` = #{name,jdbcType=VARCHAR}
+    update t_apply_process
+    set DeployId = #{deployId,jdbcType=VARCHAR},
+      `State` = #{state,jdbcType=OTHER}
     where ID = #{ID,jdbcType=BIGINT}
   </update>
 </mapper>

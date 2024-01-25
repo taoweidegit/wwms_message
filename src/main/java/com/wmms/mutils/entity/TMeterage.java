@@ -6,53 +6,53 @@ public class TMeterage {
     private Long ID;
 
     /**
-    * 备件
-    */
+     * 备件
+     */
     private Long ware;
 
     /**
-    * 生产编号
-    */
+     * 生产编号
+     */
     private String productionNumber;
 
     /**
-    * 检验证书编号
-    */
+     * 检验证书编号
+     */
     private String certificateNumber;
 
     /**
-    * 精确度
-    */
+     * 精确度
+     */
     private String accuracy;
 
     /**
-    * 有效期
-    */
+     * 有效期
+     */
     private Integer validityPeriod;
 
     /**
-    * 等级
-    */
+     * 等级
+     */
     private String level;
 
     /**
-    * 最近检验日期
-    */
+     * 最近检验日期
+     */
     private Date currentInspectionDate;
 
     /**
-    * 计量编号
-    */
+     * 计量编号
+     */
     private String meterageNumber;
 
     /**
-    * 使用地点
-    */
+     * 使用地点
+     */
     private String usingPlace;
 
     /**
-    * 计量器具的状态
-    */
+     * 计量器具的状态
+     */
     private Object state;
 
     public Long getID() {

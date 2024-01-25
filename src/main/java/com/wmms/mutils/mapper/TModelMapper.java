@@ -1,22 +1,19 @@
 package com.wmms.mutils.mapper;
 
-import com.wmms.mutils.entity.TMeterage;
-import com.wmms.mutils.entity.TMeterageExample;
-
+import com.wmms.mutils.entity.TModel;
+import com.wmms.mutils.entity.TModelExample;
 import java.util.List;
-
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 @Mapper
-public interface TMeterageMapper {
-    long countByExample(TMeterageExample example);
+public interface TModelMapper {
+    long countByExample(TModelExample example);
 
-    int deleteByExample(TMeterageExample example);
+    int deleteByExample(TModelExample example);
 
     /**
      * delete by primary key
-     *
      * @param ID primaryKey
      * @return deleteCount
      */
@@ -24,47 +21,42 @@ public interface TMeterageMapper {
 
     /**
      * insert record to table
-     *
      * @param record the record
      * @return insert count
      */
-    int insert(TMeterage record);
+    int insert(TModel record);
 
     /**
      * insert record to table selective
-     *
      * @param record the record
      * @return insert count
      */
-    int insertSelective(TMeterage record);
+    int insertSelective(TModel record);
 
-    List<TMeterage> selectByExample(TMeterageExample example);
+    List<TModel> selectByExample(TModelExample example);
 
     /**
      * select by primary key
-     *
      * @param ID primary key
      * @return object by primary key
      */
-    TMeterage selectByPrimaryKey(Long ID);
+    TModel selectByPrimaryKey(Long ID);
 
-    int updateByExampleSelective(@Param("record") TMeterage record, @Param("example") TMeterageExample example);
+    int updateByExampleSelective(@Param("record") TModel record, @Param("example") TModelExample example);
 
-    int updateByExample(@Param("record") TMeterage record, @Param("example") TMeterageExample example);
+    int updateByExample(@Param("record") TModel record, @Param("example") TModelExample example);
 
     /**
      * update record selective
-     *
      * @param record the updated record
      * @return update count
      */
-    int updateByPrimaryKeySelective(TMeterage record);
+    int updateByPrimaryKeySelective(TModel record);
 
     /**
      * update record
-     *
      * @param record the updated record
      * @return update count
      */
-    int updateByPrimaryKey(TMeterage record);
+    int updateByPrimaryKey(TModel record);
 }

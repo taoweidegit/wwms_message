@@ -40,6 +40,11 @@ public class TApply {
      */
     private Integer applyQuantity;
 
+    /**
+     * 备件所存放的仓库
+     */
+    private Long warehouse;
+
     public Long getID() {
         return ID;
     }
@@ -104,6 +109,14 @@ public class TApply {
         this.applyQuantity = applyQuantity;
     }
 
+    public Long getWarehouse() {
+        return warehouse;
+    }
+
+    public void setWarehouse(Long warehouse) {
+        this.warehouse = warehouse;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -118,6 +131,7 @@ public class TApply {
         sb.append(", warehousingTime=").append(warehousingTime);
         sb.append(", ware=").append(ware);
         sb.append(", applyQuantity=").append(applyQuantity);
+        sb.append(", warehouse=").append(warehouse);
         sb.append("]");
         return sb.toString();
     }

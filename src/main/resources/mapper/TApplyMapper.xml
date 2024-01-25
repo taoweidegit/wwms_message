@@ -12,6 +12,7 @@
     <result column="WarehousingTime" jdbcType="TIMESTAMP" property="warehousingTime" />
     <result column="Ware" jdbcType="BIGINT" property="ware" />
     <result column="ApplyQuantity" jdbcType="INTEGER" property="applyQuantity" />
+    <result column="Warehouse" jdbcType="BIGINT" property="warehouse" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--@mbg.generated-->
@@ -75,7 +76,8 @@
   </sql>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    ID, Applicant, WareQuantity, ApplicationTime, `State`, WarehousingTime, Ware, ApplyQuantity
+    ID, Applicant, WareQuantity, ApplicationTime, `State`, WarehousingTime, Ware, ApplyQuantity, 
+    Warehouse
   </sql>
   <select id="selectByExample" parameterType="com.wmms.mutils.entity.TApplyExample" resultMap="BaseResultMap">
     <!--@mbg.generated-->
@@ -115,10 +117,10 @@
     <!--@mbg.generated-->
     insert into t_apply (Applicant, WareQuantity, ApplicationTime, 
       `State`, WarehousingTime, Ware, 
-      ApplyQuantity)
+      ApplyQuantity, Warehouse)
     values (#{applicant,jdbcType=BIGINT}, #{wareQuantity,jdbcType=INTEGER}, #{applicationTime,jdbcType=TIMESTAMP}, 
       #{state,jdbcType=OTHER}, #{warehousingTime,jdbcType=TIMESTAMP}, #{ware,jdbcType=BIGINT}, 
-      #{applyQuantity,jdbcType=INTEGER})
+      #{applyQuantity,jdbcType=INTEGER}, #{warehouse,jdbcType=BIGINT})
   </insert>
   <insert id="insertSelective" keyColumn="ID" keyProperty="ID" parameterType="com.wmms.mutils.entity.TApply" useGeneratedKeys="true">
     <!--@mbg.generated-->
@@ -145,6 +147,9 @@
       <if test="applyQuantity != null">
         ApplyQuantity,
       </if>
+      <if test="warehouse != null">
+        Warehouse,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="applicant != null">
@@ -167,6 +172,9 @@
       </if>
       <if test="applyQuantity != null">
         #{applyQuantity,jdbcType=INTEGER},
+      </if>
+      <if test="warehouse != null">
+        #{warehouse,jdbcType=BIGINT},
       </if>
     </trim>
   </insert>
@@ -205,6 +213,9 @@
       <if test="record.applyQuantity != null">
         ApplyQuantity = #{record.applyQuantity,jdbcType=INTEGER},
       </if>
+      <if test="record.warehouse != null">
+        Warehouse = #{record.warehouse,jdbcType=BIGINT},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -220,7 +231,8 @@
       `State` = #{record.state,jdbcType=OTHER},
       WarehousingTime = #{record.warehousingTime,jdbcType=TIMESTAMP},
       Ware = #{record.ware,jdbcType=BIGINT},
-      ApplyQuantity = #{record.applyQuantity,jdbcType=INTEGER}
+      ApplyQuantity = #{record.applyQuantity,jdbcType=INTEGER},
+      Warehouse = #{record.warehouse,jdbcType=BIGINT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -250,6 +262,9 @@
       <if test="applyQuantity != null">
         ApplyQuantity = #{applyQuantity,jdbcType=INTEGER},
       </if>
+      <if test="warehouse != null">
+        Warehouse = #{warehouse,jdbcType=BIGINT},
+      </if>
     </set>
     where ID = #{ID,jdbcType=BIGINT}
   </update>
@@ -262,7 +277,8 @@
       `State` = #{state,jdbcType=OTHER},
       WarehousingTime = #{warehousingTime,jdbcType=TIMESTAMP},
       Ware = #{ware,jdbcType=BIGINT},
-      ApplyQuantity = #{applyQuantity,jdbcType=INTEGER}
+      ApplyQuantity = #{applyQuantity,jdbcType=INTEGER},
+      Warehouse = #{warehouse,jdbcType=BIGINT}
     where ID = #{ID,jdbcType=BIGINT}
   </update>
 </mapper>

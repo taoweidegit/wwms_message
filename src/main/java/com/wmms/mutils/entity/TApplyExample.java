@@ -584,6 +584,66 @@ public class TApplyExample {
             addCriterion("ApplyQuantity not between", value1, value2, "applyQuantity");
             return (Criteria) this;
         }
+
+        public Criteria andWarehouseIsNull() {
+            addCriterion("Warehouse is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andWarehouseIsNotNull() {
+            addCriterion("Warehouse is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andWarehouseEqualTo(Long value) {
+            addCriterion("Warehouse =", value, "warehouse");
+            return (Criteria) this;
+        }
+
+        public Criteria andWarehouseNotEqualTo(Long value) {
+            addCriterion("Warehouse <>", value, "warehouse");
+            return (Criteria) this;
+        }
+
+        public Criteria andWarehouseGreaterThan(Long value) {
+            addCriterion("Warehouse >", value, "warehouse");
+            return (Criteria) this;
+        }
+
+        public Criteria andWarehouseGreaterThanOrEqualTo(Long value) {
+            addCriterion("Warehouse >=", value, "warehouse");
+            return (Criteria) this;
+        }
+
+        public Criteria andWarehouseLessThan(Long value) {
+            addCriterion("Warehouse <", value, "warehouse");
+            return (Criteria) this;
+        }
+
+        public Criteria andWarehouseLessThanOrEqualTo(Long value) {
+            addCriterion("Warehouse <=", value, "warehouse");
+            return (Criteria) this;
+        }
+
+        public Criteria andWarehouseIn(List<Long> values) {
+            addCriterion("Warehouse in", values, "warehouse");
+            return (Criteria) this;
+        }
+
+        public Criteria andWarehouseNotIn(List<Long> values) {
+            addCriterion("Warehouse not in", values, "warehouse");
+            return (Criteria) this;
+        }
+
+        public Criteria andWarehouseBetween(Long value1, Long value2) {
+            addCriterion("Warehouse between", value1, value2, "warehouse");
+            return (Criteria) this;
+        }
+
+        public Criteria andWarehouseNotBetween(Long value1, Long value2) {
+            addCriterion("Warehouse not between", value1, value2, "warehouse");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {
