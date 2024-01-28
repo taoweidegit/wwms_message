@@ -13,6 +13,8 @@
     <result column="Ware" jdbcType="BIGINT" property="ware" />
     <result column="ApplyQuantity" jdbcType="INTEGER" property="applyQuantity" />
     <result column="Warehouse" jdbcType="BIGINT" property="warehouse" />
+    <result column="ApplyId" jdbcType="VARCHAR" property="applyId" />
+    <result column="ApplyStartId" jdbcType="BIGINT" property="applyStartId" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--@mbg.generated-->
@@ -77,7 +79,7 @@
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
     ID, Applicant, WareQuantity, ApplicationTime, `State`, WarehousingTime, Ware, ApplyQuantity, 
-    Warehouse
+    Warehouse, ApplyId, ApplyStartId
   </sql>
   <select id="selectByExample" parameterType="com.wmms.mutils.entity.TApplyExample" resultMap="BaseResultMap">
     <!--@mbg.generated-->
@@ -117,10 +119,12 @@
     <!--@mbg.generated-->
     insert into t_apply (Applicant, WareQuantity, ApplicationTime, 
       `State`, WarehousingTime, Ware, 
-      ApplyQuantity, Warehouse)
+      ApplyQuantity, Warehouse, ApplyId, 
+      ApplyStartId)
     values (#{applicant,jdbcType=BIGINT}, #{wareQuantity,jdbcType=INTEGER}, #{applicationTime,jdbcType=TIMESTAMP}, 
       #{state,jdbcType=OTHER}, #{warehousingTime,jdbcType=TIMESTAMP}, #{ware,jdbcType=BIGINT}, 
-      #{applyQuantity,jdbcType=INTEGER}, #{warehouse,jdbcType=BIGINT})
+      #{applyQuantity,jdbcType=INTEGER}, #{warehouse,jdbcType=BIGINT}, #{applyId,jdbcType=VARCHAR}, 
+      #{applyStartId,jdbcType=BIGINT})
   </insert>
   <insert id="insertSelective" keyColumn="ID" keyProperty="ID" parameterType="com.wmms.mutils.entity.TApply" useGeneratedKeys="true">
     <!--@mbg.generated-->
@@ -150,6 +154,12 @@
       <if test="warehouse != null">
         Warehouse,
       </if>
+      <if test="applyId != null">
+        ApplyId,
+      </if>
+      <if test="applyStartId != null">
+        ApplyStartId,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="applicant != null">
@@ -175,6 +185,12 @@
       </if>
       <if test="warehouse != null">
         #{warehouse,jdbcType=BIGINT},
+      </if>
+      <if test="applyId != null">
+        #{applyId,jdbcType=VARCHAR},
+      </if>
+      <if test="applyStartId != null">
+        #{applyStartId,jdbcType=BIGINT},
       </if>
     </trim>
   </insert>
@@ -216,6 +232,12 @@
       <if test="record.warehouse != null">
         Warehouse = #{record.warehouse,jdbcType=BIGINT},
       </if>
+      <if test="record.applyId != null">
+        ApplyId = #{record.applyId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.applyStartId != null">
+        ApplyStartId = #{record.applyStartId,jdbcType=BIGINT},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -232,7 +254,9 @@
       WarehousingTime = #{record.warehousingTime,jdbcType=TIMESTAMP},
       Ware = #{record.ware,jdbcType=BIGINT},
       ApplyQuantity = #{record.applyQuantity,jdbcType=INTEGER},
-      Warehouse = #{record.warehouse,jdbcType=BIGINT}
+      Warehouse = #{record.warehouse,jdbcType=BIGINT},
+      ApplyId = #{record.applyId,jdbcType=VARCHAR},
+      ApplyStartId = #{record.applyStartId,jdbcType=BIGINT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -265,6 +289,12 @@
       <if test="warehouse != null">
         Warehouse = #{warehouse,jdbcType=BIGINT},
       </if>
+      <if test="applyId != null">
+        ApplyId = #{applyId,jdbcType=VARCHAR},
+      </if>
+      <if test="applyStartId != null">
+        ApplyStartId = #{applyStartId,jdbcType=BIGINT},
+      </if>
     </set>
     where ID = #{ID,jdbcType=BIGINT}
   </update>
@@ -278,7 +308,9 @@
       WarehousingTime = #{warehousingTime,jdbcType=TIMESTAMP},
       Ware = #{ware,jdbcType=BIGINT},
       ApplyQuantity = #{applyQuantity,jdbcType=INTEGER},
-      Warehouse = #{warehouse,jdbcType=BIGINT}
+      Warehouse = #{warehouse,jdbcType=BIGINT},
+      ApplyId = #{applyId,jdbcType=VARCHAR},
+      ApplyStartId = #{applyStartId,jdbcType=BIGINT}
     where ID = #{ID,jdbcType=BIGINT}
   </update>
 </mapper>

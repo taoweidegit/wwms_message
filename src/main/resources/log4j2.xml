@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="info" monitorInterval="5">
+
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout
+                    pattern="[%-d{yyyy-MM-dd HH:mm:ss,SSS}] [%p] [%F:%L] [%c.%M] [%t]: %m%n" />
+        </Console>
+        <RollingFile name="SysRollingFile"
+                     fileName="logs/log.log"
+                     filePattern="logs/$${date:yyyy-MM}/log-%d{yyyy-MM-dd_HH}-%i.log">
+            <PatternLayout charset="UTF-8"
+                           pattern="[%-d{yyyy-MM-dd HH:mm:ss,SSS}] [%p] [%F:%L] [%c.%M] [%t]: %m%n" />
+            <Policies>
+                <TimeBasedTriggeringPolicy modulate="true" interval="1"/>
+                <SizeBasedTriggeringPolicy size="250 MB" />
+            </Policies>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Root level="info">
+            <!--  本地测试可关闭，生产环境打开才能有效备份日志文件 -->
+            <!--  <AppenderRef ref="SysRollingFile" /> -->
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="SysRollingFile" />
+            <!-- <AppenderRef ref="RFC5424" /> -->
+        </Root>
+    </Loggers>
+</Configuration>

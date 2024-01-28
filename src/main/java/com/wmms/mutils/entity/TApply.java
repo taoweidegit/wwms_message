@@ -45,6 +45,16 @@ public class TApply {
      */
     private Long warehouse;
 
+    /**
+     * 流程id flowable
+     */
+    private String applyId;
+
+    /**
+     * 计量专员开启采购计划ID
+     */
+    private Long applyStartId;
+
     public Long getID() {
         return ID;
     }
@@ -117,6 +127,22 @@ public class TApply {
         this.warehouse = warehouse;
     }
 
+    public String getApplyId() {
+        return applyId;
+    }
+
+    public void setApplyId(String applyId) {
+        this.applyId = applyId;
+    }
+
+    public Long getApplyStartId() {
+        return applyStartId;
+    }
+
+    public void setApplyStartId(Long applyStartId) {
+        this.applyStartId = applyStartId;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -132,6 +158,8 @@ public class TApply {
         sb.append(", ware=").append(ware);
         sb.append(", applyQuantity=").append(applyQuantity);
         sb.append(", warehouse=").append(warehouse);
+        sb.append(", applyId=").append(applyId);
+        sb.append(", applyStartId=").append(applyStartId);
         sb.append("]");
         return sb.toString();
     }

@@ -644,6 +644,136 @@ public class TApplyExample {
             addCriterion("Warehouse not between", value1, value2, "warehouse");
             return (Criteria) this;
         }
+
+        public Criteria andApplyIdIsNull() {
+            addCriterion("ApplyId is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyIdIsNotNull() {
+            addCriterion("ApplyId is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyIdEqualTo(String value) {
+            addCriterion("ApplyId =", value, "applyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyIdNotEqualTo(String value) {
+            addCriterion("ApplyId <>", value, "applyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyIdGreaterThan(String value) {
+            addCriterion("ApplyId >", value, "applyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyIdGreaterThanOrEqualTo(String value) {
+            addCriterion("ApplyId >=", value, "applyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyIdLessThan(String value) {
+            addCriterion("ApplyId <", value, "applyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyIdLessThanOrEqualTo(String value) {
+            addCriterion("ApplyId <=", value, "applyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyIdLike(String value) {
+            addCriterion("ApplyId like", value, "applyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyIdNotLike(String value) {
+            addCriterion("ApplyId not like", value, "applyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyIdIn(List<String> values) {
+            addCriterion("ApplyId in", values, "applyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyIdNotIn(List<String> values) {
+            addCriterion("ApplyId not in", values, "applyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyIdBetween(String value1, String value2) {
+            addCriterion("ApplyId between", value1, value2, "applyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyIdNotBetween(String value1, String value2) {
+            addCriterion("ApplyId not between", value1, value2, "applyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyStartIdIsNull() {
+            addCriterion("ApplyStartId is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyStartIdIsNotNull() {
+            addCriterion("ApplyStartId is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyStartIdEqualTo(Long value) {
+            addCriterion("ApplyStartId =", value, "applyStartId");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyStartIdNotEqualTo(Long value) {
+            addCriterion("ApplyStartId <>", value, "applyStartId");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyStartIdGreaterThan(Long value) {
+            addCriterion("ApplyStartId >", value, "applyStartId");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyStartIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("ApplyStartId >=", value, "applyStartId");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyStartIdLessThan(Long value) {
+            addCriterion("ApplyStartId <", value, "applyStartId");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyStartIdLessThanOrEqualTo(Long value) {
+            addCriterion("ApplyStartId <=", value, "applyStartId");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyStartIdIn(List<Long> values) {
+            addCriterion("ApplyStartId in", values, "applyStartId");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyStartIdNotIn(List<Long> values) {
+            addCriterion("ApplyStartId not in", values, "applyStartId");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyStartIdBetween(Long value1, Long value2) {
+            addCriterion("ApplyStartId between", value1, value2, "applyStartId");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyStartIdNotBetween(Long value1, Long value2) {
+            addCriterion("ApplyStartId not between", value1, value2, "applyStartId");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {
