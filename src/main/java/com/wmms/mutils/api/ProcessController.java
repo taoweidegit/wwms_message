@@ -68,7 +68,7 @@ public class ProcessController
 
         // 查找计量专员开通的采购计划
         TApplyStartExample applyStartClause = new TApplyStartExample();
-        applyStartClause.createCriteria().andEndDateIsNotNull();
+        applyStartClause.createCriteria().andEndDateIsNull();
         List<TApplyStart> applyStartList = applyStartMapper.selectByExample(applyStartClause);
 
         // 更改数据库, 添加流程Id和采购计划Id
@@ -86,6 +86,8 @@ public class ProcessController
         List<Task> list = taskService.createTaskQuery()
                 .processInstanceId(processId)
                 .taskAssignee("sys_check_plan")
+                .includeProcessVariables()
+                .includeTaskLocalVariables()
                 .list();
         Task task = null;
         for (Task value : list)

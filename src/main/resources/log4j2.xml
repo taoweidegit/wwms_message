@@ -3,12 +3,14 @@
 
     <Appenders>
         <Console name="Console" target="SYSTEM_OUT">
+            <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
             <PatternLayout
                     pattern="[%-d{yyyy-MM-dd HH:mm:ss,SSS}] [%p] [%F:%L] [%c.%M] [%t]: %m%n" />
         </Console>
         <RollingFile name="SysRollingFile"
                      fileName="logs/log.log"
                      filePattern="logs/$${date:yyyy-MM}/log-%d{yyyy-MM-dd_HH}-%i.log">
+            <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
             <PatternLayout charset="UTF-8"
                            pattern="[%-d{yyyy-MM-dd HH:mm:ss,SSS}] [%p] [%F:%L] [%c.%M] [%t]: %m%n" />
             <Policies>
