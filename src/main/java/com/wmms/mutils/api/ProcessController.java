@@ -7,21 +7,16 @@ import com.wmms.mutils.entity.TApplyStartExample;
 import com.wmms.mutils.mapper.TApplyMapper;
 import com.wmms.mutils.mapper.TApplyStartMapper;
 import org.flowable.common.engine.impl.identity.Authentication;
-import org.flowable.engine.ProcessEngine;
-import org.flowable.engine.RepositoryService;
-import org.flowable.engine.RuntimeService;
-import org.flowable.engine.TaskService;
+import org.flowable.engine.*;
+import org.flowable.engine.history.HistoricDetail;
 import org.flowable.engine.runtime.ProcessInstance;
 import org.flowable.task.api.Task;
+import org.flowable.task.api.history.HistoricTaskInstance;
+import org.flowable.variable.api.history.HistoricVariableInstance;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 @RestController
 public class ProcessController
@@ -32,6 +27,8 @@ public class ProcessController
     private TaskService taskService;
     @Autowired
     private RepositoryService repositoryService;
+    @Autowired
+    private HistoryService historyService;
     @Autowired
     private ProcessEngine processEngine;
 
@@ -113,5 +110,41 @@ public class ProcessController
         }
 
         return "200";
+    }
+
+    @GetMapping("/process/model/apply/state")
+    public String getMetrologyHistoryList(@RequestParam String form)
+    {
+        // form --> 数据库t_apply表主键
+        TApply apply = applyMapper.selectByPrimaryKey(Long.valueOf(form));
+        historyService = processEngine.getHistoryService();
+
+        List<String> assigneeList = new ArrayList<>();
+        List<HistoricTaskInstance> historicTaskInstanceList =
+                historyService.createHistoricTaskInstanceQuery().processInstanceId(apply.getApplyId()).list();
+        for (HistoricTaskInstance historicTaskInstance: historicTaskInstanceList)
+        {
+            String assignee = historicTaskInstance.getAssignee();
+            assigneeList.add(assignee);
+        }
+
+        // 202为未抵达计量专员批准阶段
+        // 200计量专员批准
+        // 201计量专员拒绝
+        // 203已抵达计量专员 待 批准状态
+
+        if (!assigneeList.contains("check_apply"))
+            return "202";
+
+        if (!assigneeList.contains("sys_notify_pass"))
+            return "203";
+
+        List<HistoricDetail> historicDetailList =
+                historyService.createHistoricDetailQuery().variableUpdates()
+                        .processInstanceId(apply.getApplyId()).taskId("notify_pass")
+                .orderByTime().desc().list();
+        boolean isPass = !historicDetailList.isEmpty();
+
+        return isPass ? "200" : "201";
     }
 }
