@@ -136,7 +136,7 @@ public class ProcessController
         if (!assigneeList.contains("check_apply"))
             return "202";
 
-        if (!assigneeList.contains("sys_notify_pass"))
+        if (!assigneeList.contains("sys_notify_pass") && !assigneeList.contains("sys_notify_not_pass"))
             return "203";
 
         List<HistoricDetail> historicDetailList =
