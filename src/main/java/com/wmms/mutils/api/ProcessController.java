@@ -139,12 +139,24 @@ public class ProcessController
         if (!assigneeList.contains("sys_notify_pass") && !assigneeList.contains("sys_notify_not_pass"))
             return "203";
 
-        List<HistoricDetail> historicDetailList =
-                historyService.createHistoricDetailQuery().variableUpdates()
-                        .processInstanceId(apply.getApplyId()).taskId("notify_pass")
-                .orderByTime().desc().list();
-        boolean isPass = !historicDetailList.isEmpty();
+        if (assigneeList.contains("sys_notify_pass"))
+            return "200";
 
-        return isPass ? "200" : "201";
+        return "201";
+    }
+
+    @GetMapping("/process/model/apply/accept")
+    public String acceptApply(@RequestParam String applyId)
+    {
+        TApply apply = applyMapper.selectByPrimaryKey(Long.valueOf(applyId));
+        String processId = apply.getApplyId();
+
+        Task task =
+                taskService.createTaskQuery().processInstanceId(processId).taskAssignee("check_apply").singleResult();
+        Map<String,Object> vars = new HashMap<>();
+        vars.put("result", "yes");
+        taskService.complete(task.getId(), vars);
+
+        return "200";
     }
 }
