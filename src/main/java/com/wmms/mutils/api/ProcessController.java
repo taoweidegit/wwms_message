@@ -159,4 +159,19 @@ public class ProcessController
 
         return "200";
     }
+
+    @GetMapping("/process/model/apply/reject")
+    public String rejectApply(@RequestParam String applyId)
+    {
+        TApply apply = applyMapper.selectByPrimaryKey(Long.valueOf(applyId));
+        String processId = apply.getApplyId();
+
+        Task task =
+                taskService.createTaskQuery().processInstanceId(processId).taskAssignee("check_apply").singleResult();
+        Map<String,Object> vars = new HashMap<>();
+        vars.put("result", "no");
+        taskService.complete(task.getId(), vars);
+
+        return "200";
+    }
 }
