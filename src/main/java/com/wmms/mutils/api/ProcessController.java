@@ -1,21 +1,25 @@
 package com.wmms.mutils.api;
 
-import com.wmms.mutils.entity.TApply;
-import com.wmms.mutils.entity.TApplyExample;
-import com.wmms.mutils.entity.TApplyStart;
-import com.wmms.mutils.entity.TApplyStartExample;
-import com.wmms.mutils.mapper.TApplyMapper;
-import com.wmms.mutils.mapper.TApplyStartMapper;
+import com.alibaba.excel.EasyExcel;
+import com.alibaba.excel.write.style.HorizontalCellStyleStrategy;
+import com.aliyun.oss.OSS;
+import com.aliyun.oss.OSSClientBuilder;
+import com.aliyun.oss.model.PutObjectRequest;
+import com.wmms.mutils.entity.*;
+import com.wmms.mutils.excel.ApplyPlanExcelData;
+import com.wmms.mutils.excel.CustomCellWriteWidthConfig;
+import com.wmms.mutils.excel.StyleUtils;
+import com.wmms.mutils.mapper.*;
 import org.flowable.common.engine.impl.identity.Authentication;
 import org.flowable.engine.*;
-import org.flowable.engine.history.HistoricDetail;
 import org.flowable.engine.runtime.ProcessInstance;
 import org.flowable.task.api.Task;
 import org.flowable.task.api.history.HistoricTaskInstance;
-import org.flowable.variable.api.history.HistoricVariableInstance;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.*;
 
 @RestController
@@ -37,6 +41,18 @@ public class ProcessController
 
     @Autowired
     private TApplyStartMapper applyStartMapper;
+
+    @Autowired
+    private TWareMapper wareMapper;
+
+    @Autowired
+    private TWareKindMapper kindMapper;
+
+    @Autowired
+    private TModelMapper modelMapper;
+
+    @Autowired
+    private TUserMapper userMapper;
 
     @PostMapping("/process/model/apply/start")
     public String start(@RequestBody Map<String, Object> map)
@@ -171,6 +187,101 @@ public class ProcessController
         Map<String,Object> vars = new HashMap<>();
         vars.put("result", "no");
         taskService.complete(task.getId(), vars);
+
+        return "200";
+    }
+
+    @PostMapping("/process/plan/apply/end")
+    public String endApply(@RequestBody Map<String, Object> map)
+    {
+        List<String> applyIdList = (List<String>) map.get("data");
+
+        taskService = processEngine.getTaskService();
+
+        for (String processId: applyIdList)
+        {
+            Task task =
+                    taskService.createTaskQuery().processInstanceId(processId).taskAssignee("check_apply").singleResult();
+            Map<String,Object> vars = new HashMap<>();
+            vars.put("result", "yes");
+            taskService.complete(task.getId(), vars);
+
+            TApplyExample applyClause = new TApplyExample();
+            applyClause.createCriteria().andApplyIdEqualTo(processId);
+            TApply updateApply = new TApply();
+            updateApply.setState("approving");
+            applyMapper.updateByExampleSelective(updateApply, applyClause);
+        }
+
+        return "200";
+    }
+
+    @GetMapping("/process/plan/end/excel")
+    public String generateEndPlanExcel(@RequestParam String planId) throws IOException
+    {
+        TApplyExample applyClause = new TApplyExample();
+        applyClause.createCriteria().andApplyStartIdEqualTo(Long.valueOf(planId));
+        List<TApply> applyList = applyMapper.selectByExample(applyClause);
+
+        List<ApplyPlanExcelData> dataList = new ArrayList<>();
+        for (TApply apply: applyList)
+        {
+            ApplyPlanExcelData applyPlanExcelData = new ApplyPlanExcelData();
+
+            TWare ware = wareMapper.selectByPrimaryKey(apply.getWare());
+            TModel model = modelMapper.selectByPrimaryKey(ware.getModel());
+            TWareKind wareKind = kindMapper.selectByPrimaryKey(model.getKind());
+            TUser user = userMapper.selectByPrimaryKey(apply.getApplicant());
+
+            applyPlanExcelData.setType(wareKind.getName());
+            applyPlanExcelData.setApplyCount(apply.getApplyQuantity().toString());
+            applyPlanExcelData.setModel(model.getName());
+            applyPlanExcelData.setItemNumber(ware.getItemNumber());
+            applyPlanExcelData.setName(user.getName());
+
+            dataList.add(applyPlanExcelData);
+        }
+
+        HorizontalCellStyleStrategy horizontalCellStyleStrategy =
+                new HorizontalCellStyleStrategy(StyleUtils.getHeadStyle(), StyleUtils.getContentStyle());
+        com.wmms.mutils.excel.CustomCellWriteWidthConfig customCellWriteWidthConfig = new CustomCellWriteWidthConfig();
+
+        File file = new File("D:\\采购计划.xlsx");
+        if (file.exists())
+            file.delete();
+
+        EasyExcel.write(file, ApplyPlanExcelData.class)
+                .sheet()
+                .registerWriteHandler(horizontalCellStyleStrategy)
+                .registerWriteHandler(customCellWriteWidthConfig)
+                .doWrite(dataList);
+
+        String bucketName = "wmms";
+
+        // OSS上传
+        OSS ossClient = null;
+        try
+        {
+            String endpoint = "https://oss-cn-hangzhou.aliyuncs.com";
+            ossClient = new OSSClientBuilder().build(endpoint, "LTAI5tFL2ZNX4etwRnV65GkJ",
+                    "pCSMAFuTbLKbGmBvr7Ad0OXJsKZx97");
+
+            boolean exists = ossClient.doesBucketExist(bucketName);
+            if (!exists)
+                ossClient.createBucket(bucketName);
+
+            PutObjectRequest putObjectRequest = new PutObjectRequest(bucketName, "采购计划.xlsx", file);
+            ossClient.putObject(putObjectRequest);
+        }
+        catch (Exception e)
+        {
+
+        }
+        finally
+        {
+            if (ossClient != null)
+                ossClient.shutdown();
+        }
 
         return "200";
     }
