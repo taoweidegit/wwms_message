@@ -164,123 +164,133 @@ public class TInventoryExample {
             return (Criteria) this;
         }
 
-        public Criteria andWareIsNull() {
-            addCriterion("Ware is null");
+        public Criteria andModelIsNull() {
+            addCriterion("Model is null");
             return (Criteria) this;
         }
 
-        public Criteria andWareIsNotNull() {
-            addCriterion("Ware is not null");
+        public Criteria andModelIsNotNull() {
+            addCriterion("Model is not null");
             return (Criteria) this;
         }
 
-        public Criteria andWareEqualTo(Long value) {
-            addCriterion("Ware =", value, "ware");
+        public Criteria andModelEqualTo(Long value) {
+            addCriterion("Model =", value, "model");
             return (Criteria) this;
         }
 
-        public Criteria andWareNotEqualTo(Long value) {
-            addCriterion("Ware <>", value, "ware");
+        public Criteria andModelNotEqualTo(Long value) {
+            addCriterion("Model <>", value, "model");
             return (Criteria) this;
         }
 
-        public Criteria andWareGreaterThan(Long value) {
-            addCriterion("Ware >", value, "ware");
+        public Criteria andModelGreaterThan(Long value) {
+            addCriterion("Model >", value, "model");
             return (Criteria) this;
         }
 
-        public Criteria andWareGreaterThanOrEqualTo(Long value) {
-            addCriterion("Ware >=", value, "ware");
+        public Criteria andModelGreaterThanOrEqualTo(Long value) {
+            addCriterion("Model >=", value, "model");
             return (Criteria) this;
         }
 
-        public Criteria andWareLessThan(Long value) {
-            addCriterion("Ware <", value, "ware");
+        public Criteria andModelLessThan(Long value) {
+            addCriterion("Model <", value, "model");
             return (Criteria) this;
         }
 
-        public Criteria andWareLessThanOrEqualTo(Long value) {
-            addCriterion("Ware <=", value, "ware");
+        public Criteria andModelLessThanOrEqualTo(Long value) {
+            addCriterion("Model <=", value, "model");
             return (Criteria) this;
         }
 
-        public Criteria andWareIn(List<Long> values) {
-            addCriterion("Ware in", values, "ware");
+        public Criteria andModelIn(List<Long> values) {
+            addCriterion("Model in", values, "model");
             return (Criteria) this;
         }
 
-        public Criteria andWareNotIn(List<Long> values) {
-            addCriterion("Ware not in", values, "ware");
+        public Criteria andModelNotIn(List<Long> values) {
+            addCriterion("Model not in", values, "model");
             return (Criteria) this;
         }
 
-        public Criteria andWareBetween(Long value1, Long value2) {
-            addCriterion("Ware between", value1, value2, "ware");
+        public Criteria andModelBetween(Long value1, Long value2) {
+            addCriterion("Model between", value1, value2, "model");
             return (Criteria) this;
         }
 
-        public Criteria andWareNotBetween(Long value1, Long value2) {
-            addCriterion("Ware not between", value1, value2, "ware");
+        public Criteria andModelNotBetween(Long value1, Long value2) {
+            addCriterion("Model not between", value1, value2, "model");
             return (Criteria) this;
         }
 
-        public Criteria andQuantityIsNull() {
-            addCriterion("Quantity is null");
+        public Criteria andProductionNumberIsNull() {
+            addCriterion("ProductionNumber is null");
             return (Criteria) this;
         }
 
-        public Criteria andQuantityIsNotNull() {
-            addCriterion("Quantity is not null");
+        public Criteria andProductionNumberIsNotNull() {
+            addCriterion("ProductionNumber is not null");
             return (Criteria) this;
         }
 
-        public Criteria andQuantityEqualTo(Integer value) {
-            addCriterion("Quantity =", value, "quantity");
+        public Criteria andProductionNumberEqualTo(String value) {
+            addCriterion("ProductionNumber =", value, "productionNumber");
             return (Criteria) this;
         }
 
-        public Criteria andQuantityNotEqualTo(Integer value) {
-            addCriterion("Quantity <>", value, "quantity");
+        public Criteria andProductionNumberNotEqualTo(String value) {
+            addCriterion("ProductionNumber <>", value, "productionNumber");
             return (Criteria) this;
         }
 
-        public Criteria andQuantityGreaterThan(Integer value) {
-            addCriterion("Quantity >", value, "quantity");
+        public Criteria andProductionNumberGreaterThan(String value) {
+            addCriterion("ProductionNumber >", value, "productionNumber");
             return (Criteria) this;
         }
 
-        public Criteria andQuantityGreaterThanOrEqualTo(Integer value) {
-            addCriterion("Quantity >=", value, "quantity");
+        public Criteria andProductionNumberGreaterThanOrEqualTo(String value) {
+            addCriterion("ProductionNumber >=", value, "productionNumber");
             return (Criteria) this;
         }
 
-        public Criteria andQuantityLessThan(Integer value) {
-            addCriterion("Quantity <", value, "quantity");
+        public Criteria andProductionNumberLessThan(String value) {
+            addCriterion("ProductionNumber <", value, "productionNumber");
             return (Criteria) this;
         }
 
-        public Criteria andQuantityLessThanOrEqualTo(Integer value) {
-            addCriterion("Quantity <=", value, "quantity");
+        public Criteria andProductionNumberLessThanOrEqualTo(String value) {
+            addCriterion("ProductionNumber <=", value, "productionNumber");
             return (Criteria) this;
         }
 
-        public Criteria andQuantityIn(List<Integer> values) {
-            addCriterion("Quantity in", values, "quantity");
+        public Criteria andProductionNumberLike(String value) {
+            addCriterion("ProductionNumber like", value, "productionNumber");
             return (Criteria) this;
         }
 
-        public Criteria andQuantityNotIn(List<Integer> values) {
-            addCriterion("Quantity not in", values, "quantity");
+        public Criteria andProductionNumberNotLike(String value) {
+            addCriterion("ProductionNumber not like", value, "productionNumber");
             return (Criteria) this;
         }
 
-        public Criteria andQuantityBetween(Integer value1, Integer value2) {
-            addCriterion("Quantity between", value1, value2, "quantity");
+        public Criteria andProductionNumberIn(List<String> values) {
+            addCriterion("ProductionNumber in", values, "productionNumber");
             return (Criteria) this;
         }
 
-        public Criteria andQuantityNotBetween(Integer value1, Integer value2) {
-            addCriterion("Quantity not between", value1, value2, "quantity");
+        public Criteria andProductionNumberNotIn(List<String> values) {
+            addCriterion("ProductionNumber not in", values, "productionNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andProductionNumberBetween(String value1, String value2) {
+            addCriterion("ProductionNumber between", value1, value2, "productionNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andProductionNumberNotBetween(String value1, String value2) {
+            addCriterion("ProductionNumber not between", value1, value2, "productionNumber");
             return (Criteria) this;
         }
 
@@ -341,6 +351,66 @@ public class TInventoryExample {
 
         public Criteria andShelveNotBetween(Long value1, Long value2) {
             addCriterion("Shelve not between", value1, value2, "shelve");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateIsNull() {
+            addCriterion("`State` is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateIsNotNull() {
+            addCriterion("`State` is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateEqualTo(Object value) {
+            addCriterion("`State` =", value, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateNotEqualTo(Object value) {
+            addCriterion("`State` <>", value, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateGreaterThan(Object value) {
+            addCriterion("`State` >", value, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateGreaterThanOrEqualTo(Object value) {
+            addCriterion("`State` >=", value, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateLessThan(Object value) {
+            addCriterion("`State` <", value, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateLessThanOrEqualTo(Object value) {
+            addCriterion("`State` <=", value, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateIn(List<Object> values) {
+            addCriterion("`State` in", values, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateNotIn(List<Object> values) {
+            addCriterion("`State` not in", values, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateBetween(Object value1, Object value2) {
+            addCriterion("`State` between", value1, value2, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateNotBetween(Object value1, Object value2) {
+            addCriterion("`State` not between", value1, value2, "state");
             return (Criteria) this;
         }
     }

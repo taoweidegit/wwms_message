@@ -5,9 +5,10 @@
     <!--@mbg.generated-->
     <!--@Table t_inventory-->
     <id column="ID" jdbcType="BIGINT" property="ID" />
-    <result column="Ware" jdbcType="BIGINT" property="ware" />
-    <result column="Quantity" jdbcType="INTEGER" property="quantity" />
+    <result column="Model" jdbcType="BIGINT" property="model" />
+    <result column="ProductionNumber" jdbcType="VARCHAR" property="productionNumber" />
     <result column="Shelve" jdbcType="BIGINT" property="shelve" />
+    <result column="State" jdbcType="OTHER" property="state" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--@mbg.generated-->
@@ -71,7 +72,7 @@
   </sql>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    ID, Ware, Quantity, Shelve
+    ID, Model, ProductionNumber, Shelve, `State`
   </sql>
   <select id="selectByExample" parameterType="com.wmms.mutils.entity.TInventoryExample" resultMap="BaseResultMap">
     <!--@mbg.generated-->
@@ -109,10 +110,10 @@
   </delete>
   <insert id="insert" parameterType="com.wmms.mutils.entity.TInventory">
     <!--@mbg.generated-->
-    insert into t_inventory (ID, Ware, Quantity, 
-      Shelve)
-    values (#{ID,jdbcType=BIGINT}, #{ware,jdbcType=BIGINT}, #{quantity,jdbcType=INTEGER}, 
-      #{shelve,jdbcType=BIGINT})
+    insert into t_inventory (ID, Model, ProductionNumber, 
+      Shelve, `State`)
+    values (#{ID,jdbcType=BIGINT}, #{model,jdbcType=BIGINT}, #{productionNumber,jdbcType=VARCHAR}, 
+      #{shelve,jdbcType=BIGINT}, #{state,jdbcType=OTHER})
   </insert>
   <insert id="insertSelective" parameterType="com.wmms.mutils.entity.TInventory">
     <!--@mbg.generated-->
@@ -121,28 +122,34 @@
       <if test="ID != null">
         ID,
       </if>
-      <if test="ware != null">
-        Ware,
+      <if test="model != null">
+        Model,
       </if>
-      <if test="quantity != null">
-        Quantity,
+      <if test="productionNumber != null">
+        ProductionNumber,
       </if>
       <if test="shelve != null">
         Shelve,
+      </if>
+      <if test="state != null">
+        `State`,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="ID != null">
         #{ID,jdbcType=BIGINT},
       </if>
-      <if test="ware != null">
-        #{ware,jdbcType=BIGINT},
+      <if test="model != null">
+        #{model,jdbcType=BIGINT},
       </if>
-      <if test="quantity != null">
-        #{quantity,jdbcType=INTEGER},
+      <if test="productionNumber != null">
+        #{productionNumber,jdbcType=VARCHAR},
       </if>
       <if test="shelve != null">
         #{shelve,jdbcType=BIGINT},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=OTHER},
       </if>
     </trim>
   </insert>
@@ -160,14 +167,17 @@
       <if test="record.ID != null">
         ID = #{record.ID,jdbcType=BIGINT},
       </if>
-      <if test="record.ware != null">
-        Ware = #{record.ware,jdbcType=BIGINT},
+      <if test="record.model != null">
+        Model = #{record.model,jdbcType=BIGINT},
       </if>
-      <if test="record.quantity != null">
-        Quantity = #{record.quantity,jdbcType=INTEGER},
+      <if test="record.productionNumber != null">
+        ProductionNumber = #{record.productionNumber,jdbcType=VARCHAR},
       </if>
       <if test="record.shelve != null">
         Shelve = #{record.shelve,jdbcType=BIGINT},
+      </if>
+      <if test="record.state != null">
+        `State` = #{record.state,jdbcType=OTHER},
       </if>
     </set>
     <if test="_parameter != null">
@@ -178,9 +188,10 @@
     <!--@mbg.generated-->
     update t_inventory
     set ID = #{record.ID,jdbcType=BIGINT},
-      Ware = #{record.ware,jdbcType=BIGINT},
-      Quantity = #{record.quantity,jdbcType=INTEGER},
-      Shelve = #{record.shelve,jdbcType=BIGINT}
+      Model = #{record.model,jdbcType=BIGINT},
+      ProductionNumber = #{record.productionNumber,jdbcType=VARCHAR},
+      Shelve = #{record.shelve,jdbcType=BIGINT},
+      `State` = #{record.state,jdbcType=OTHER}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -189,14 +200,17 @@
     <!--@mbg.generated-->
     update t_inventory
     <set>
-      <if test="ware != null">
-        Ware = #{ware,jdbcType=BIGINT},
+      <if test="model != null">
+        Model = #{model,jdbcType=BIGINT},
       </if>
-      <if test="quantity != null">
-        Quantity = #{quantity,jdbcType=INTEGER},
+      <if test="productionNumber != null">
+        ProductionNumber = #{productionNumber,jdbcType=VARCHAR},
       </if>
       <if test="shelve != null">
         Shelve = #{shelve,jdbcType=BIGINT},
+      </if>
+      <if test="state != null">
+        `State` = #{state,jdbcType=OTHER},
       </if>
     </set>
     where ID = #{ID,jdbcType=BIGINT}
@@ -204,9 +218,10 @@
   <update id="updateByPrimaryKey" parameterType="com.wmms.mutils.entity.TInventory">
     <!--@mbg.generated-->
     update t_inventory
-    set Ware = #{ware,jdbcType=BIGINT},
-      Quantity = #{quantity,jdbcType=INTEGER},
-      Shelve = #{shelve,jdbcType=BIGINT}
+    set Model = #{model,jdbcType=BIGINT},
+      ProductionNumber = #{productionNumber,jdbcType=VARCHAR},
+      Shelve = #{shelve,jdbcType=BIGINT},
+      `State` = #{state,jdbcType=OTHER}
     where ID = #{ID,jdbcType=BIGINT}
   </update>
 </mapper>
