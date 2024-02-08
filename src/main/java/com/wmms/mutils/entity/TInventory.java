@@ -23,6 +23,11 @@ public class TInventory {
      */
     private Object state;
 
+    /**
+     * Apply表主键
+     */
+    private Long apply;
+
     public Long getID() {
         return ID;
     }
@@ -63,6 +68,14 @@ public class TInventory {
         this.state = state;
     }
 
+    public Long getApply() {
+        return apply;
+    }
+
+    public void setApply(Long apply) {
+        this.apply = apply;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -74,6 +87,7 @@ public class TInventory {
         sb.append(", productionNumber=").append(productionNumber);
         sb.append(", shelve=").append(shelve);
         sb.append(", state=").append(state);
+        sb.append(", apply=").append(apply);
         sb.append("]");
         return sb.toString();
     }

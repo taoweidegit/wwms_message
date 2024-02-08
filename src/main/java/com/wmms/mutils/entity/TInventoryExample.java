@@ -413,6 +413,66 @@ public class TInventoryExample {
             addCriterion("`State` not between", value1, value2, "state");
             return (Criteria) this;
         }
+
+        public Criteria andApplyIsNull() {
+            addCriterion("Apply is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyIsNotNull() {
+            addCriterion("Apply is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyEqualTo(Long value) {
+            addCriterion("Apply =", value, "apply");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyNotEqualTo(Long value) {
+            addCriterion("Apply <>", value, "apply");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyGreaterThan(Long value) {
+            addCriterion("Apply >", value, "apply");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyGreaterThanOrEqualTo(Long value) {
+            addCriterion("Apply >=", value, "apply");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyLessThan(Long value) {
+            addCriterion("Apply <", value, "apply");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyLessThanOrEqualTo(Long value) {
+            addCriterion("Apply <=", value, "apply");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyIn(List<Long> values) {
+            addCriterion("Apply in", values, "apply");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyNotIn(List<Long> values) {
+            addCriterion("Apply not in", values, "apply");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyBetween(Long value1, Long value2) {
+            addCriterion("Apply between", value1, value2, "apply");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyNotBetween(Long value1, Long value2) {
+            addCriterion("Apply not between", value1, value2, "apply");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

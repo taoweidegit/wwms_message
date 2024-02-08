@@ -9,6 +9,7 @@
     <result column="ProductionNumber" jdbcType="VARCHAR" property="productionNumber" />
     <result column="Shelve" jdbcType="BIGINT" property="shelve" />
     <result column="State" jdbcType="OTHER" property="state" />
+    <result column="Apply" jdbcType="BIGINT" property="apply" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--@mbg.generated-->
@@ -72,7 +73,7 @@
   </sql>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    ID, Model, ProductionNumber, Shelve, `State`
+    ID, Model, ProductionNumber, Shelve, `State`, Apply
   </sql>
   <select id="selectByExample" parameterType="com.wmms.mutils.entity.TInventoryExample" resultMap="BaseResultMap">
     <!--@mbg.generated-->
@@ -111,9 +112,9 @@
   <insert id="insert" parameterType="com.wmms.mutils.entity.TInventory">
     <!--@mbg.generated-->
     insert into t_inventory (ID, Model, ProductionNumber, 
-      Shelve, `State`)
+      Shelve, `State`, Apply)
     values (#{ID,jdbcType=BIGINT}, #{model,jdbcType=BIGINT}, #{productionNumber,jdbcType=VARCHAR}, 
-      #{shelve,jdbcType=BIGINT}, #{state,jdbcType=OTHER})
+      #{shelve,jdbcType=BIGINT}, #{state,jdbcType=OTHER}, #{apply,jdbcType=BIGINT})
   </insert>
   <insert id="insertSelective" parameterType="com.wmms.mutils.entity.TInventory">
     <!--@mbg.generated-->
@@ -134,6 +135,9 @@
       <if test="state != null">
         `State`,
       </if>
+      <if test="apply != null">
+        Apply,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="ID != null">
@@ -150,6 +154,9 @@
       </if>
       <if test="state != null">
         #{state,jdbcType=OTHER},
+      </if>
+      <if test="apply != null">
+        #{apply,jdbcType=BIGINT},
       </if>
     </trim>
   </insert>
@@ -179,6 +186,9 @@
       <if test="record.state != null">
         `State` = #{record.state,jdbcType=OTHER},
       </if>
+      <if test="record.apply != null">
+        Apply = #{record.apply,jdbcType=BIGINT},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -191,7 +201,8 @@
       Model = #{record.model,jdbcType=BIGINT},
       ProductionNumber = #{record.productionNumber,jdbcType=VARCHAR},
       Shelve = #{record.shelve,jdbcType=BIGINT},
-      `State` = #{record.state,jdbcType=OTHER}
+      `State` = #{record.state,jdbcType=OTHER},
+      Apply = #{record.apply,jdbcType=BIGINT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -212,6 +223,9 @@
       <if test="state != null">
         `State` = #{state,jdbcType=OTHER},
       </if>
+      <if test="apply != null">
+        Apply = #{apply,jdbcType=BIGINT},
+      </if>
     </set>
     where ID = #{ID,jdbcType=BIGINT}
   </update>
@@ -221,7 +235,8 @@
     set Model = #{model,jdbcType=BIGINT},
       ProductionNumber = #{productionNumber,jdbcType=VARCHAR},
       Shelve = #{shelve,jdbcType=BIGINT},
-      `State` = #{state,jdbcType=OTHER}
+      `State` = #{state,jdbcType=OTHER},
+      Apply = #{apply,jdbcType=BIGINT}
     where ID = #{ID,jdbcType=BIGINT}
   </update>
 </mapper>
