@@ -166,6 +166,8 @@ public class ProcessController
     {
         TApply apply = applyMapper.selectByPrimaryKey(Long.valueOf(applyId));
         String processId = apply.getApplyId();
+        apply.setState("approving");
+        applyMapper.updateByPrimaryKey(apply);
 
         Task task =
                 taskService.createTaskQuery().processInstanceId(processId).taskAssignee("check_apply").singleResult();
@@ -181,6 +183,8 @@ public class ProcessController
     {
         TApply apply = applyMapper.selectByPrimaryKey(Long.valueOf(applyId));
         String processId = apply.getApplyId();
+        apply.setState("cancel");
+        applyMapper.updateByPrimaryKey(apply);
 
         Task task =
                 taskService.createTaskQuery().processInstanceId(processId).taskAssignee("check_apply").singleResult();
