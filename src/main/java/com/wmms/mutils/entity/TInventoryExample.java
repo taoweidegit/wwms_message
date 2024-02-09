@@ -473,6 +473,136 @@ public class TInventoryExample {
             addCriterion("Apply not between", value1, value2, "apply");
             return (Criteria) this;
         }
+
+        public Criteria andUsingPlaceIsNull() {
+            addCriterion("UsingPlace is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsingPlaceIsNotNull() {
+            addCriterion("UsingPlace is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsingPlaceEqualTo(Long value) {
+            addCriterion("UsingPlace =", value, "usingPlace");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsingPlaceNotEqualTo(Long value) {
+            addCriterion("UsingPlace <>", value, "usingPlace");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsingPlaceGreaterThan(Long value) {
+            addCriterion("UsingPlace >", value, "usingPlace");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsingPlaceGreaterThanOrEqualTo(Long value) {
+            addCriterion("UsingPlace >=", value, "usingPlace");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsingPlaceLessThan(Long value) {
+            addCriterion("UsingPlace <", value, "usingPlace");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsingPlaceLessThanOrEqualTo(Long value) {
+            addCriterion("UsingPlace <=", value, "usingPlace");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsingPlaceIn(List<Long> values) {
+            addCriterion("UsingPlace in", values, "usingPlace");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsingPlaceNotIn(List<Long> values) {
+            addCriterion("UsingPlace not in", values, "usingPlace");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsingPlaceBetween(Long value1, Long value2) {
+            addCriterion("UsingPlace between", value1, value2, "usingPlace");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsingPlaceNotBetween(Long value1, Long value2) {
+            addCriterion("UsingPlace not between", value1, value2, "usingPlace");
+            return (Criteria) this;
+        }
+
+        public Criteria andProcessIsNull() {
+            addCriterion("`Process` is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andProcessIsNotNull() {
+            addCriterion("`Process` is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andProcessEqualTo(String value) {
+            addCriterion("`Process` =", value, "process");
+            return (Criteria) this;
+        }
+
+        public Criteria andProcessNotEqualTo(String value) {
+            addCriterion("`Process` <>", value, "process");
+            return (Criteria) this;
+        }
+
+        public Criteria andProcessGreaterThan(String value) {
+            addCriterion("`Process` >", value, "process");
+            return (Criteria) this;
+        }
+
+        public Criteria andProcessGreaterThanOrEqualTo(String value) {
+            addCriterion("`Process` >=", value, "process");
+            return (Criteria) this;
+        }
+
+        public Criteria andProcessLessThan(String value) {
+            addCriterion("`Process` <", value, "process");
+            return (Criteria) this;
+        }
+
+        public Criteria andProcessLessThanOrEqualTo(String value) {
+            addCriterion("`Process` <=", value, "process");
+            return (Criteria) this;
+        }
+
+        public Criteria andProcessLike(String value) {
+            addCriterion("`Process` like", value, "process");
+            return (Criteria) this;
+        }
+
+        public Criteria andProcessNotLike(String value) {
+            addCriterion("`Process` not like", value, "process");
+            return (Criteria) this;
+        }
+
+        public Criteria andProcessIn(List<String> values) {
+            addCriterion("`Process` in", values, "process");
+            return (Criteria) this;
+        }
+
+        public Criteria andProcessNotIn(List<String> values) {
+            addCriterion("`Process` not in", values, "process");
+            return (Criteria) this;
+        }
+
+        public Criteria andProcessBetween(String value1, String value2) {
+            addCriterion("`Process` between", value1, value2, "process");
+            return (Criteria) this;
+        }
+
+        public Criteria andProcessNotBetween(String value1, String value2) {
+            addCriterion("`Process` not between", value1, value2, "process");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

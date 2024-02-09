@@ -201,15 +201,6 @@
       <include refid="Example_Where_Clause" />
     </if>
   </select>
-  <select id="selectByApplicationTimeOverHalfYear" resultType="com.wmms.mutils.entity.TApply">
-    <!--@tdu.generated-->
-    select
-    <include refid="Base_Column_List" />
-    from t_apply
-    <where>
-      ApplicationTime <![CDATA[<=]]> DATE_SUB(CURRENT_DATE(), INTERVAL 6 MONTH)
-    </where>
-  </select>
   <update id="updateByExampleSelective" parameterType="map">
     <!--@mbg.generated-->
     update t_apply
@@ -322,4 +313,13 @@
       ApplyStartId = #{applyStartId,jdbcType=BIGINT}
     where ID = #{ID,jdbcType=BIGINT}
   </update>
+  <select id="selectByApplicationTimeOverHalfYear" resultType="com.wmms.mutils.entity.TApply">
+    <!--@tdu.generated-->
+    select
+    <include refid="Base_Column_List" />
+    from t_apply
+    <where>
+      ApplicationTime <![CDATA[<=]]> DATE_SUB(CURRENT_DATE(), INTERVAL 6 MONTH)
+    </where>
+  </select>
 </mapper>

@@ -28,6 +28,16 @@ public class TInventory {
      */
     private Long apply;
 
+    /**
+     * 备件出库后使用地点
+     */
+    private Long usingPlace;
+
+    /**
+     * 申请Id
+     */
+    private String process;
+
     public Long getID() {
         return ID;
     }
@@ -76,6 +86,22 @@ public class TInventory {
         this.apply = apply;
     }
 
+    public Long getUsingPlace() {
+        return usingPlace;
+    }
+
+    public void setUsingPlace(Long usingPlace) {
+        this.usingPlace = usingPlace;
+    }
+
+    public String getProcess() {
+        return process;
+    }
+
+    public void setProcess(String process) {
+        this.process = process;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -88,6 +114,8 @@ public class TInventory {
         sb.append(", shelve=").append(shelve);
         sb.append(", state=").append(state);
         sb.append(", apply=").append(apply);
+        sb.append(", usingPlace=").append(usingPlace);
+        sb.append(", process=").append(process);
         sb.append("]");
         return sb.toString();
     }

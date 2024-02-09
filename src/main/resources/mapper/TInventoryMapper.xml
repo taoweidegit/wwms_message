@@ -10,6 +10,8 @@
     <result column="Shelve" jdbcType="BIGINT" property="shelve" />
     <result column="State" jdbcType="OTHER" property="state" />
     <result column="Apply" jdbcType="BIGINT" property="apply" />
+    <result column="UsingPlace" jdbcType="BIGINT" property="usingPlace" />
+    <result column="Process" jdbcType="VARCHAR" property="process" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--@mbg.generated-->
@@ -73,7 +75,7 @@
   </sql>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    ID, Model, ProductionNumber, Shelve, `State`, Apply
+    ID, Model, ProductionNumber, Shelve, `State`, Apply, UsingPlace, `Process`
   </sql>
   <select id="selectByExample" parameterType="com.wmms.mutils.entity.TInventoryExample" resultMap="BaseResultMap">
     <!--@mbg.generated-->
@@ -112,9 +114,11 @@
   <insert id="insert" parameterType="com.wmms.mutils.entity.TInventory">
     <!--@mbg.generated-->
     insert into t_inventory (ID, Model, ProductionNumber, 
-      Shelve, `State`, Apply)
+      Shelve, `State`, Apply, UsingPlace, 
+      `Process`)
     values (#{ID,jdbcType=BIGINT}, #{model,jdbcType=BIGINT}, #{productionNumber,jdbcType=VARCHAR}, 
-      #{shelve,jdbcType=BIGINT}, #{state,jdbcType=OTHER}, #{apply,jdbcType=BIGINT})
+      #{shelve,jdbcType=BIGINT}, #{state,jdbcType=OTHER}, #{apply,jdbcType=BIGINT}, #{usingPlace,jdbcType=BIGINT}, 
+      #{process,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.wmms.mutils.entity.TInventory">
     <!--@mbg.generated-->
@@ -138,6 +142,12 @@
       <if test="apply != null">
         Apply,
       </if>
+      <if test="usingPlace != null">
+        UsingPlace,
+      </if>
+      <if test="process != null">
+        `Process`,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="ID != null">
@@ -157,6 +167,12 @@
       </if>
       <if test="apply != null">
         #{apply,jdbcType=BIGINT},
+      </if>
+      <if test="usingPlace != null">
+        #{usingPlace,jdbcType=BIGINT},
+      </if>
+      <if test="process != null">
+        #{process,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -189,6 +205,12 @@
       <if test="record.apply != null">
         Apply = #{record.apply,jdbcType=BIGINT},
       </if>
+      <if test="record.usingPlace != null">
+        UsingPlace = #{record.usingPlace,jdbcType=BIGINT},
+      </if>
+      <if test="record.process != null">
+        `Process` = #{record.process,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -202,7 +224,9 @@
       ProductionNumber = #{record.productionNumber,jdbcType=VARCHAR},
       Shelve = #{record.shelve,jdbcType=BIGINT},
       `State` = #{record.state,jdbcType=OTHER},
-      Apply = #{record.apply,jdbcType=BIGINT}
+      Apply = #{record.apply,jdbcType=BIGINT},
+      UsingPlace = #{record.usingPlace,jdbcType=BIGINT},
+      `Process` = #{record.process,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -226,6 +250,12 @@
       <if test="apply != null">
         Apply = #{apply,jdbcType=BIGINT},
       </if>
+      <if test="usingPlace != null">
+        UsingPlace = #{usingPlace,jdbcType=BIGINT},
+      </if>
+      <if test="process != null">
+        `Process` = #{process,jdbcType=VARCHAR},
+      </if>
     </set>
     where ID = #{ID,jdbcType=BIGINT}
   </update>
@@ -236,7 +266,9 @@
       ProductionNumber = #{productionNumber,jdbcType=VARCHAR},
       Shelve = #{shelve,jdbcType=BIGINT},
       `State` = #{state,jdbcType=OTHER},
-      Apply = #{apply,jdbcType=BIGINT}
+      Apply = #{apply,jdbcType=BIGINT},
+      UsingPlace = #{usingPlace,jdbcType=BIGINT},
+      `Process` = #{process,jdbcType=VARCHAR}
     where ID = #{ID,jdbcType=BIGINT}
   </update>
 </mapper>
