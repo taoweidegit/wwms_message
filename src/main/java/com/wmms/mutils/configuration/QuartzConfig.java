@@ -80,7 +80,7 @@ public class QuartzConfig
                 // 绑定工作任务
                 .forJob(timeoutDetail())
                 // 每隔一天执行一次 job
-                .withSchedule(SimpleScheduleBuilder.repeatHourlyForever(24))
+                .withSchedule(CronScheduleBuilder.cronSchedule("0 0 1 1 * ?"))
                 .build();
     }
 }
