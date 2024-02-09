@@ -319,7 +319,7 @@
     <include refid="Base_Column_List" />
     from t_apply
     <where>
-      ApplicationTime <![CDATA[<=]]> DATE_SUB(CURRENT_DATE(), INTERVAL 6 MONTH)
+      ApplicationTime <![CDATA[<=]]> DATE_SUB(CURRENT_DATE(), INTERVAL 6 MONTH) AND `State` = 'pending'
     </where>
   </select>
 </mapper>
