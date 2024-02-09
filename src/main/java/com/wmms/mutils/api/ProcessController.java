@@ -54,6 +54,9 @@ public class ProcessController
     @Autowired
     private TUserMapper userMapper;
 
+    @Autowired
+    private TInventoryMapper inventoryMapper;
+
     @PostMapping("/process/model/apply/start")
     public String start(@RequestBody Map<String, Object> map)
     {
@@ -286,6 +289,45 @@ public class ProcessController
             if (ossClient != null)
                 ossClient.shutdown();
         }
+
+        return "200";
+    }
+
+    @PostMapping("/process/instock/apply/start")
+    public String startInstockApply(@RequestBody Map<String, Object> map)
+    {
+        String applyId = (String) map.get("apply_id");
+        String modelId = (String) map.get("model_id");
+        int wareCount = (int) map.get("ware_count");
+        String inventoryId = (String) map.get("inventory_id");
+
+        // 部署流程
+        boolean hasApplyDeploy =
+                !repositoryService.createDeploymentQuery().deploymentKey("instock_apply").list().isEmpty();
+        if (!hasApplyDeploy)
+            repositoryService.createDeployment().addClasspathResource("process/instock_apply.bpmn20.xml").deploy();
+
+        Map<String, Object> variables = new HashMap<>();
+        variables.put("apply", applyId);
+        variables.put("model", modelId);
+        variables.put("inventory", inventoryId);
+        variables.put("count", wareCount);
+
+        ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("instock_apply", variables);
+        String processId = processInstance.getId();
+
+        TInventory inventory = inventoryMapper.selectByPrimaryKey(Long.valueOf(inventoryId));
+        inventory.setProcess(processId);
+        inventoryMapper.updateByPrimaryKey(inventory);
+
+        Task task = taskService.createTaskQuery()
+                .processInstanceId(processId)
+                .taskId("into_sys")
+                .includeProcessVariables()
+                .includeTaskLocalVariables()
+                .singleResult();
+        if (task != null)
+            taskService.complete(task.getId());
 
         return "200";
     }
