@@ -38,6 +38,20 @@ public class QuartzConfig
     }
 
     @Bean
+    public JobDetail timeoutDetail()
+    {
+        //指定任务描述具体的实现类
+        return JobBuilder.newJob(ApplyTimeoutJob.class)
+                // 指定任务的名称
+                .withIdentity("apply_timeout")
+                // 任务描述
+                .withDescription("超时")
+                // 每次任务执行后进行存储
+                .storeDurably()
+                .build();
+    }
+
+    @Bean
     public Trigger passTrigger() {
         //创建触发器
         return TriggerBuilder.newTrigger()
@@ -56,6 +70,17 @@ public class QuartzConfig
                 .forJob(jobNotPassDetail())
                 // 每隔 5 秒执行一次 job
                 .withSchedule(SimpleScheduleBuilder.repeatSecondlyForever(20))
+                .build();
+    }
+
+    @Bean
+    public Trigger timeoutTrigger() {
+        //创建触发器
+        return TriggerBuilder.newTrigger()
+                // 绑定工作任务
+                .forJob(timeoutDetail())
+                // 每隔一天执行一次 job
+                .withSchedule(SimpleScheduleBuilder.repeatHourlyForever(24))
                 .build();
     }
 }
