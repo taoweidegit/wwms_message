@@ -329,7 +329,7 @@ public class ProcessController
 
             Task task = taskService.createTaskQuery()
                     .processInstanceId(processId)
-                    .taskId("into_sys")
+                    .taskAssignee("into_sys")
                     .includeProcessVariables()
                     .includeTaskLocalVariables()
                     .singleResult();
