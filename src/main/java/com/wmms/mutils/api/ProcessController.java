@@ -296,11 +296,11 @@ public class ProcessController
     @PostMapping("/process/instock/apply/start")
     public String startInstockApply(@RequestBody Map<String, Object> map)
     {
-        String applyId = (String) map.get("apply_id");
-        String modelId = (String) map.get("model_id");
-        int wareCount = (int) map.get("ware_count");
-        String inventoryId = (String) map.get("inventory_id");
-        String applicantId = (String) map.get("applicant");
+        String applyId = map.get("apply_id").toString();
+        String modelId = map.get("model_id").toString();
+        int wareCount = Integer.parseInt(map.get("ware_count").toString());
+        List<Integer> inventoryIdList = (List<Integer>) map.get("inventory_id");
+        String applicantId = map.get("applicant_id").toString();
 
         // 部署流程
         boolean hasApplyDeploy =
@@ -308,33 +308,40 @@ public class ProcessController
         if (!hasApplyDeploy)
             repositoryService.createDeployment().addClasspathResource("process/instock_apply.bpmn20.xml").deploy();
 
-        Map<String, Object> variables = new HashMap<>();
-        variables.put("apply", applyId);
-        variables.put("model", modelId);
-        variables.put("inventory", inventoryId);
-        variables.put("count", wareCount);
-        variables.put("applicant", applicantId);
-
-        ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("instock_apply", variables);
-        String processId = processInstance.getId();
-
-        TInventory inventory = inventoryMapper.selectByPrimaryKey(Long.valueOf(inventoryId));
-        inventory.setProcess(processId);
-        inventoryMapper.updateByPrimaryKey(inventory);
-
-        Task task = taskService.createTaskQuery()
-                .processInstanceId(processId)
-                .taskId("into_sys")
-                .includeProcessVariables()
-                .includeTaskLocalVariables()
-                .singleResult();
-        if (task != null)
+        for (int inventoryId: inventoryIdList)
         {
-            taskService.complete(task.getId());
-            String updateInventoryId = task.getProcessVariables().get("inventory").toString();
-            TInventory updateInventory = inventoryMapper.selectByPrimaryKey(Long.valueOf(updateInventoryId));
-            updateInventory.setState("in_check");
-            inventoryMapper.updateByPrimaryKey(updateInventory);
+            Map<String, Object> variables = new HashMap<>();
+            variables.put("apply", applyId);
+            variables.put("model", modelId);
+            variables.put("inventory", String.valueOf(inventoryId));
+            variables.put("count", wareCount);
+            variables.put("applicant", applicantId);
+
+            ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("instock_apply", variables);
+            String processId = processInstance.getId();
+
+            TInventory inventory = inventoryMapper.selectByPrimaryKey((long) inventoryId);
+            if (inventory == null)
+                continue;
+
+            inventory.setProcess(processId);
+            inventoryMapper.updateByPrimaryKey(inventory);
+
+            Task task = taskService.createTaskQuery()
+                    .processInstanceId(processId)
+                    .taskId("into_sys")
+                    .includeProcessVariables()
+                    .includeTaskLocalVariables()
+                    .singleResult();
+
+            if (task != null)
+            {
+                taskService.complete(task.getId());
+                String updateInventoryId = task.getProcessVariables().get("inventory").toString();
+                TInventory updateInventory = inventoryMapper.selectByPrimaryKey(Long.valueOf(updateInventoryId));
+                updateInventory.setState("in_check");
+                inventoryMapper.updateByPrimaryKey(updateInventory);
+            }
         }
 
         return "200";
