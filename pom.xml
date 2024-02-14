@@ -194,7 +194,7 @@
                 <version>${spring-boot.version}</version>
                 <configuration>
                     <mainClass>com.wmms.mutils.MutilsApplication</mainClass>
-                    <skip>true</skip>
+<!--                    <skip>true</skip>-->
                 </configuration>
                 <executions>
                     <execution>
