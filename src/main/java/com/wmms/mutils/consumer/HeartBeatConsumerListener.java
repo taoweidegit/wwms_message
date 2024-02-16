@@ -1,7 +1,10 @@
 package com.wmms.mutils.consumer;
 
+import com.wmms.mutils.configuration.SMSJob;
 import org.apache.activemq.command.ActiveMQBytesMessage;
 import org.apache.activemq.util.ByteSequence;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.jms.annotation.JmsListener;
@@ -12,6 +15,8 @@ import java.util.concurrent.TimeUnit;
 @Component
 public class HeartBeatConsumerListener
 {
+    private static final Logger logger = LogManager.getLogger(HeartBeatConsumerListener.class.getName());
+
     @Autowired
     private RedisTemplate redisTemplate;
 
@@ -23,6 +28,6 @@ public class HeartBeatConsumerListener
         if (Boolean.TRUE.equals(redisTemplate.hasKey(ack)))
             redisTemplate.delete(ack);
         redisTemplate.opsForValue().set(ack, String.valueOf(System.currentTimeMillis()), 1, TimeUnit.MINUTES);
-        System.out.println("[heart_beat] " + ack);
+        logger.info("[heart_beat] " + ack);
     }
 }
