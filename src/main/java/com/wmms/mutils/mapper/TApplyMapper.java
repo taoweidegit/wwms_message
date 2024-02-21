@@ -69,7 +69,7 @@ public interface TApplyMapper {
     int updateByPrimaryKey(TApply record);
 
     /*
-            查找申请时间超过半年的记录
-         */
+                    查找申请时间超过半年的记录
+                 */
     List<TApply> selectByApplicationTimeOverHalfYear();
 }

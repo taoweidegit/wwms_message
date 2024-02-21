@@ -111,22 +111,19 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.wmms.mutils.entity.TInventory">
+  <insert id="insert" keyColumn="ID" keyProperty="ID" parameterType="com.wmms.mutils.entity.TInventory" useGeneratedKeys="true">
     <!--@mbg.generated-->
-    insert into t_inventory (ID, Model, ProductionNumber, 
-      Shelve, `State`, Apply, UsingPlace, 
+    insert into t_inventory (Model, ProductionNumber, Shelve, 
+      `State`, Apply, UsingPlace, 
       `Process`)
-    values (#{ID,jdbcType=BIGINT}, #{model,jdbcType=BIGINT}, #{productionNumber,jdbcType=VARCHAR}, 
-      #{shelve,jdbcType=BIGINT}, #{state,jdbcType=OTHER}, #{apply,jdbcType=BIGINT}, #{usingPlace,jdbcType=BIGINT}, 
+    values (#{model,jdbcType=BIGINT}, #{productionNumber,jdbcType=VARCHAR}, #{shelve,jdbcType=BIGINT}, 
+      #{state,jdbcType=OTHER}, #{apply,jdbcType=BIGINT}, #{usingPlace,jdbcType=BIGINT}, 
       #{process,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.wmms.mutils.entity.TInventory">
+  <insert id="insertSelective" keyColumn="ID" keyProperty="ID" parameterType="com.wmms.mutils.entity.TInventory" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into t_inventory
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="ID != null">
-        ID,
-      </if>
       <if test="model != null">
         Model,
       </if>
@@ -150,9 +147,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="ID != null">
-        #{ID,jdbcType=BIGINT},
-      </if>
       <if test="model != null">
         #{model,jdbcType=BIGINT},
       </if>

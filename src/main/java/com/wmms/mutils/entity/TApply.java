@@ -55,6 +55,11 @@ public class TApply {
      */
     private Long applyStartId;
 
+    /**
+     * 申请原因
+     */
+    private String reason;
+
     public Long getID() {
         return ID;
     }
@@ -143,6 +148,14 @@ public class TApply {
         this.applyStartId = applyStartId;
     }
 
+    public String getReason() {
+        return reason;
+    }
+
+    public void setReason(String reason) {
+        this.reason = reason;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -160,6 +173,7 @@ public class TApply {
         sb.append(", warehouse=").append(warehouse);
         sb.append(", applyId=").append(applyId);
         sb.append(", applyStartId=").append(applyStartId);
+        sb.append(", reason=").append(reason);
         sb.append("]");
         return sb.toString();
     }
