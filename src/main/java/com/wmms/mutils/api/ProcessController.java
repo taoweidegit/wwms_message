@@ -224,10 +224,10 @@ public class ProcessController
     }
 
     @GetMapping("/process/plan/end/excel")
-    public String generateEndPlanExcel(@RequestParam String planId) throws IOException
+    public String generateEndPlanExcel(@RequestParam String planId)
     {
         TApplyExample applyClause = new TApplyExample();
-        applyClause.createCriteria().andApplyStartIdEqualTo(Long.valueOf(planId));
+        applyClause.createCriteria().andApplyStartIdEqualTo(Long.valueOf(planId)).andStateEqualTo("approving");
         List<TApply> applyList = applyMapper.selectByExample(applyClause);
 
         List<ApplyPlanExcelData> dataList = new ArrayList<>();
